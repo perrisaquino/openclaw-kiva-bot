@@ -21,7 +21,7 @@
 
 ## Who Perris Is
 
-- Sub-developer, marketer, and **movement artist**
+- Solo developer, marketer, and **movement artist**
 - Building **CyphrCam** — a creative suite for dancers and movement artists
 - Content creator: Instagram (~30K), TikTok (~14K) — topics range from dance to systems of oppression to government critique
 - Values: community, artistry, freedom, independence
@@ -29,7 +29,7 @@
 
 ## CyphrCam
 
-- **What:** App that lets dancers dance with headphones, auto-overlays the music. Plus a suite of tools solving real problems dancers face at a professional level.
+- **What:** App that lets dancers dance with headphones, auto-overlays the music. Plus a suite of tools solving real problems dancers face at a professional level. **Expanding to professional camera integration via Cyphr Sync Pro hardware.**
 - **Platform:** iOS, built in Xcode
 - **Codebase:** /Volumes/X10 Pro/CipherCam/Cipher Cam V3/ (main), V4 exists but early
 - **Tech:** SwiftUI, MVVM, AVFoundation, CocoaPods, Xcode 15+, iOS 17+
@@ -72,12 +72,24 @@ Perris wants to build **autonomous engines** that run 24/7 — marketing, conten
 
 ## Goals (Current)
 
+### Phase 1: App Store Launch
 1. **Publish CyphrCam to the App Store** — the bottleneck
-2. App Store screenshots
-3. Build 24/7 autonomous marketing ecosystem (personal brand + CyphrCam)
-4. Generate $1,500–2,000/month from the app
-5. Relocate to Thailand or the Philippines
-6. Position for dance world opportunities and partnerships
+2. **Build an active, engaged community of movement artists** — choreographers and freestylers who use the tool, share creations, discuss practice, request features
+3. App Store screenshots
+4. Build 24/7 autonomous marketing ecosystem (personal brand + CyphrCam)
+5. Generate $1,500–2,000/month from the app
+
+### Phase 2: Professional Market Expansion
+6. **Cyphr Sync Pro Hardware** — Raspberry Pi + professional camera integration (Sony A7C, etc.)
+   - Target: Professional dancers, studios, content creators
+   - Tech: iPhone (CyphrCam) + Pi + Pro Camera = studio-quality footage with auto music sync
+   - Revenue: $125k+ potential from $199-299 hardware kits
+   - Positioning: "CyphrCam Pro: Studio Edition"
+   - Timeline: 6-8 weeks development after App Store launch
+
+### Phase 3: Lifestyle & Expansion  
+7. Relocate to Thailand or the Philippines
+8. Position for dance world opportunities and partnerships
 
 ## How to Be With Perris
 

@@ -1,0 +1,182 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "DanceTribe by AlphaTheta - Direct Competitor with Music Sync",
+      "category": "competitor-watch",
+      "importance": "hot",
+      "summary": "AlphaTheta Corporation (DJ equipment company) released DanceTribe app in 2022, updated v2.0 in Jan 2024. FREE iPhone app with music sync, recording, editing tools. Direct competitor to CyphrCam with similar core features: dance recording in sync with music, practice tools, social sharing. Has music editing tool built-in. Backed by major DJ equipment company with distribution advantages.",
+      "source": "https://alphatheta.com/en/landing/dancetribe-free-app-for-dancers/",
+      "dateAdded": "2026-02-24",
+      "timestamp": 1740441600000,
+      "analysis": {
+        "threat_level": "HIGH",
+        "advantages": ["Free app", "Backed by major corporation", "Music editing included", "Already established"],
+        "weaknesses": ["Generic dance app", "Not freestyle-specific", "No community features", "DJ company, not dance-focused"],
+        "opportunity": "CyphrCam can differentiate with freestyle-specific features and dance community focus"
+      }
+    },
+    {
+      "id": 2,
+      "title": "FreeBeat.AI - AI-Generated Dance Videos Disrupting Market",
+      "category": "competitor-watch",
+      "importance": "hot",
+      "summary": "FreeBeat.AI uses AI to generate dance videos with beat-matched choreography, lip-sync, and cinematic storytelling. This represents a new threat category - AI-generated content competing with human dancers. Could impact demand for dance recording apps if AI becomes preferred for social content creation.",
+      "source": "https://freebeat.ai/",
+      "dateAdded": "2026-02-24",
+      "timestamp": 1740441600000,
+      "analysis": {
+        "threat_level": "MEDIUM",
+        "trend": "AI disruption in creative content",
+        "opportunity": "Position CyphrCam as 'authentic human movement' vs AI-generated"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Anti-Asian Hate Crimes Still 3x Higher Than Pre-Pandemic",
+      "category": "political-threats",
+      "importance": "hot",
+      "summary": "November 2025 FBI data shows anti-Asian hate crimes remain nearly three times higher than pre-pandemic levels. Filipino Americans are part of this targeted group. Creates safety concerns for travel, public appearances, and business operations. Need increased security awareness when traveling for business, attending events, or doing public marketing.",
+      "source": "https://ajsocal.org/civil-rights-groups-release-anti-asian-hate-analysis-and-updated-community-resources-based-on-new-crime-data-from-fbi/",
+      "dateAdded": "2026-02-24",
+      "timestamp": 1740441600000,
+      "analysis": {
+        "personal_impact": "Safety considerations for travel and public events",
+        "business_impact": "May affect in-person marketing, event participation",
+        "mitigation": "Security planning for events, awareness of local threat levels"
+      }
+    },
+    {
+      "id": 4,
+      "title": "ICE Immigration Crackdown Targeting Filipino Healthcare Workers",
+      "category": "political-threats",
+      "importance": "hot",
+      "summary": "February 2025 reports show Filipino communities in US fear Trump immigration crackdown. ICE tactics affecting Filipino healthcare workers who make up 4% of US registered nurses. Creates climate of fear and potential travel/relocation restrictions. Could impact business planning and future relocation goals (Thailand/Philippines).",
+      "source": "https://www.theguardian.com/us-news/2025/dec/29/filipino-healthcare-workers-immigration-trump",
+      "dateAdded": "2026-02-24",
+      "timestamp": 1740441600000,
+      "analysis": {
+        "personal_impact": "Potential travel restrictions, documentation concerns",
+        "business_impact": "May affect relocation timeline and business expansion plans",
+        "planning": "Document business assets, consider timing of international moves"
+      }
+    },
+    {
+      "id": 5,
+      "title": "STEEZY Studio Dominates Online Dance Education Market",
+      "category": "industry-trends",
+      "importance": "notable",
+      "summary": "STEEZY Studio continues to dominate online dance education with interactive learning technology, multiple camera angles, speed control, and loop features. They've established the standard for online dance learning. CyphrCam could partner or compete in the practice/recording space that STEEZY doesn't cover well.",
+      "source": "https://wellyx.com/blog/apps-for-dance-studios/",
+      "dateAdded": "2026-02-24",
+      "timestamp": 1740441600000,
+      "analysis": {
+        "market_position": "Established leader in dance education",
+        "opportunity": "CyphrCam focuses on practice/recording vs education",
+        "partnership_potential": "Could complement STEEZY's learning with practice tools"
+      }
+    },
+    {
+      "id": 6,
+      "title": "AI Dance Generators Gaining Popularity in 2026",
+      "category": "industry-trends",
+      "importance": "notable",
+      "summary": "Hailuo AI and other AI dance generators are creating viral TikTok content using photo-to-dance video technology. Offering K-pop, hip-hop, ballet, freestyle styles. This trend could reduce demand for human dancers or create new market for authentic human movement as counter-trend.",
+      "source": "https://overchat.ai/ai-hub/best-ai-dance-generators",
+      "dateAdded": "2026-02-24",
+      "timestamp": 1740441600000,
+      "analysis": {
+        "market_disruption": "AI-generated content competing with human dancers",
+        "counter_opportunity": "Authentic human movement as premium alternative",
+        "positioning": "CyphrCam enables 'real human artistry' vs AI-generated content"
+      }
+    },
+    {
+      "id": 7,
+      "title": "Filipino American Activism Movement Growing Against Authoritarianism",
+      "category": "political-threats",
+      "importance": "notable",
+      "summary": "Filipino American Lakas Collective and 'No Kings' rallies in Historic Filipinotown are part of growing pro-democracy movement. Shows organized resistance but also highlights political tensions. As Filipino American business owner, could face targeting or need to consider political positioning.",
+      "source": "https://19thnews.org/2026/02/filipino-american-freedom-marcos-trump",
+      "dateAdded": "2026-02-24",
+      "timestamp": 1740441600000,
+      "analysis": {
+        "community_strength": "Organized resistance and community support",
+        "risk": "Potential targeting of Filipino American businesses/individuals",
+        "consideration": "Political positioning and community support strategies"
+      }
+    },
+    {
+      "id": 8,
+      "title": "Dance Formation Apps Show Market for Specialized Dance Tools",
+      "category": "cyphrcam-opportunities",
+      "importance": "notable",
+      "summary": "Apps like FormiStudio, DanceApp.us show demand for specialized dance choreography tools. Formation tracking, music timing, collision detection. Proves market exists for dance-specific technical tools beyond general video recording. CyphrCam could expand into choreography planning tools.",
+      "source": "https://www.reddit.com/r/stagemanagement/comments/14dtllc/formistudio_choreography_formation_tracking/",
+      "dateAdded": "2026-02-24",
+      "timestamp": 1740441600000,
+      "analysis": {
+        "market_validation": "Demand exists for specialized dance technical tools",
+        "expansion_opportunity": "CyphrCam could add choreography planning features",
+        "differentiation": "Technical tools for serious dancers vs casual recording apps"
+      }
+    },
+    {
+      "id": 9,
+      "title": "No Direct Competitors in Freestyle-Specific Recording Niche",
+      "category": "cyphrcam-opportunities",
+      "importance": "hot",
+      "summary": "Research shows no major apps specifically targeting freestyle dancers with music sync recording. DanceTribe is generic, STEEZY is education, formation apps are choreography tools. CyphrCam has clear blue ocean opportunity in freestyle dance recording with music sync. This validates the positioning strategy.",
+      "source": "Multiple competitor analysis sources",
+      "dateAdded": "2026-02-24",
+      "timestamp": 1740441600000,
+      "analysis": {
+        "market_gap": "No direct competitors in freestyle recording niche",
+        "blue_ocean": "Clear opportunity for market leadership",
+        "strategy": "Double down on freestyle-specific features and community"
+      }
+    },
+    {
+      "id": 10,
+      "title": "TikTok Dance Content Creation Still Growing Despite Political Pressure",
+      "category": "industry-trends",
+      "importance": "notable",
+      "summary": "Despite political pressure on TikTok, dance content creation continues growing. Reddit communities actively seeking dance apps for hip-hop, contemporary, heels dancing. Shows sustained demand for dance content tools. CyphrCam positioned well for this market.",
+      "source": "https://www.reddit.com/r/Dance/comments/127h6ii/help_me_find_a_free_app_that_will_help_me_become/",
+      "dateAdded": "2026-02-24",
+      "timestamp": 1740441600000,
+      "analysis": {
+        "market_demand": "Continued growth in dance content creation",
+        "platform_risk": "TikTok political pressure creates uncertainty",
+        "opportunity": "Platform-agnostic tools become more valuable"
+      }
+    }
+  ],
+  "lastUpdate": "2026-02-24T16:50:00Z",
+  "sources": {
+    "competitive_research": "Real-time web research on current dance app landscape",
+    "political_monitoring": "Current news on Filipino American safety and political climate",
+    "industry_analysis": "Market trends in dance technology and content creation"
+  },
+  "analysis_summary": {
+    "key_threats": [
+      "DanceTribe direct competition with similar features",
+      "Anti-Asian hate crimes affecting safety",
+      "ICE crackdowns affecting travel and business planning",
+      "AI-generated content potentially reducing demand for human dancers"
+    ],
+    "key_opportunities": [
+      "No direct competitor in freestyle-specific niche",
+      "Market validation for specialized dance tools",
+      "Growing dance content creation market",
+      "Potential positioning as 'authentic human movement' vs AI"
+    ],
+    "strategic_recommendations": [
+      "Focus heavily on freestyle-specific features to differentiate from DanceTribe",
+      "Build strong dance community features that generic apps lack",
+      "Consider safety and travel planning in business operations",
+      "Position as authentic human artistry vs AI-generated content",
+      "Explore partnerships with dance education platforms like STEEZY"
+    ]
+  }
+}

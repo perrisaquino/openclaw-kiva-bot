@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# OpenClaw Model Switcher
+# Usage: ./switch-model [opus|sonnet|codex|qwen|kimi]
+
+set -e
+
+case "$1" in
+    "opus"|"claude-opus"|"4.6")
+        echo "🧠 Switching to Claude Opus 4.6..."
+        openclaw models set anthropic/claude-opus-4-6
+        echo "✅ Active model: Claude Opus 4.6 (195K context)"
+        ;;
+    "sonnet"|"claude-sonnet"|"sonnet-4")
+        echo "🧠 Switching to Claude Sonnet 4..."
+        openclaw models set anthropic/claude-sonnet-4-20250514
+        echo "✅ Active model: Claude Sonnet 4 (195K context)"
+        ;;
+    "codex"|"gpt"|"openai")
+        echo "🧠 Switching to GPT-5.3 Codex..."
+        openclaw models set openai/gpt-5.3-codex
+        echo "✅ Active model: GPT-5.3 Codex (Latest, 391K context)"
+        ;;
+    "qwen"|"qwen-portal"|"coder")
+        echo "🧠 Switching to Qwen Coder..."
+        openclaw models set qwen-portal/coder-model
+        echo "✅ Active model: Qwen Coder (125K context)"
+        ;;
+    "kimi"|"k2"|"moonshot")
+        echo "🧠 Switching to Kimi K2.5..."
+        openclaw models set moonshot/kimi-k2.5
+        echo "✅ Active model: Kimi K2.5 (250K context)"
+        ;;
+    "local"|"ollama"|"qwen-local")
+        echo "🧠 Switching to QWEN Local 32B (Pro)..."
+        openclaw models set ollama/qwen2.5-coder:32b
+        echo "✅ Active model: QWEN 2.5 Coder 32B Local (131K context, $0 cost)"
+        ;;
+    "local-fast"|"7b"|"qwen-7b")
+        echo "🧠 Switching to QWEN Local 7B (Fast)..."
+        openclaw models set ollama/qwen2.5-coder:7b
+        echo "✅ Active model: QWEN 2.5 Coder 7B Local (32K context, $0 cost, faster)"
+        ;;
+    "list"|"ls"|"")
+        echo "📋 Available models:"
+        echo "   opus      - Claude Opus 4.6 (195K ctx) 🧠 PLANNING/HIGH-LEVEL"
+        echo "   sonnet    - Claude Sonnet 4 (195K ctx) ✍️ WRITING/MARKETING" 
+        echo "   codex     - GPT-5.3 Codex (391K ctx) 💻 CODING/LOW-LEVERAGE ⚡LATEST"
+        echo "   qwen      - Qwen Coder (125K ctx) 🔧 GENERAL CODING"
+        echo "   kimi      - Kimi K2.5 (250K ctx) 🌟 MULTILINGUAL"
+        echo "   local     - QWEN 32B Local (131K ctx) 🏠 PRIVATE/FREE/PRO ⚡UPGRADED"
+        echo "   local-fast- QWEN 7B Local (32K ctx) 🏠 PRIVATE/FREE/FAST"
+        echo ""
+        echo "💡 Current model:"
+        openclaw models list | head -1
+        openclaw models list | grep default
+        ;;
+    *)
+        echo "❌ Unknown model: $1"
+        echo "💡 Usage: $0 [opus|sonnet|codex|qwen|kimi|local|local-fast|list]"
+        exit 1
+        ;;
+esac
