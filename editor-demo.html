@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Markdown Editor Demo</title>
+    <link rel="stylesheet" href="markdown-editor.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .demo-header h1 {
+            margin: 0 0 16px 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #007acc, #1177bb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .demo-header p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin: 0;
+        }
+        
+        .demo-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        .demo-card {
+            background: #2d2d30;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .demo-card:hover {
+            border-color: #007acc;
+            transform: translateY(-2px);
+        }
+        
+        .demo-card h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .demo-card p {
+            color: #cccccc;
+            margin: 0 0 16px 0;
+            line-height: 1.5;
+        }
+        
+        .demo-button {
+            background: #007acc;
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+        
+        .demo-button:hover {
+            background: #1177bb;
+            transform: translateY(-1px);
+        }
+        
+        .features-list {
+            background: #2d2d30;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .features-list h2 {
+            margin: 0 0 20px 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-top: 2px;
+        }
+        
+        .feature-content h4 {
+            margin: 0 0 4px 0;
+            font-weight: 600;
+        }
+        
+        .feature-content p {
+            margin: 0;
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>Integrated Markdown Editor</h1>
+            <p>Professional writing environment for Mission Control content pipeline</p>
+        </div>
+        
+        <div class="demo-cards">
+            <div class="demo-card">
+                <h3>📝 Origin Story Article</h3>
+                <p>Complete article about building CyphrCam and lessons learned from the dance community.</p>
+                <button class="demo-button" onclick="openMarkdownEditor('Ideas/Why I\'m Building an App for Dancers.md', 'Why I\'m Building an App for Dancers')">
+                    Open in Editor
+                </button>
+            </div>
+            
+            <div class="demo-card">
+                <h3>🚗 Florida Testing Experience</h3>
+                <p>Real-world testing story: taking the app on an 8-hour road trip and everything that broke.</p>
+                <button class="demo-button" onclick="openMarkdownEditor('Draft/Florida Testing Report.md', 'I Tested My App on an 8-Hour Trip to Florida')">
+                    Open in Editor
+                </button>
+            </div>
+            
+            <div class="demo-card">
+                <h3>👨‍🏫 Lessons from Nikel</h3>
+                <p>What BTM's founder taught about making technology invisible for creative professionals.</p>
+                <button class="demo-button" onclick="openMarkdownEditor('Review/Nikel BTM Lessons.md', 'What Nikel Taught Me About Making Technology Invisible')">
+                    Open in Editor
+                </button>
+            </div>
+            
+            <div class="demo-card">
+                <h3>💻 Non-Technical Founder Journey</h3>
+                <p>How to build an iOS app when you can't code: AI partnerships and strategic thinking.</p>
+                <button class="demo-button" onclick="openMarkdownEditor('Ready/Non-Technical Founder Story.md', 'I\'m a Dancer Who Can\'t Code. Here\'s How I\'m Building an iOS App Anyway.')">
+                    Open in Editor
+                </button>
+            </div>
+        </div>
+        
+        <div class="features-list">
+            <h2>🚀 Editor Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📝</div>
+                    <div class="feature-content">
+                        <h4>WYSIWYG Editing</h4>
+                        <p>Rich text editing with live formatting, similar to Google Docs</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-content">
+                        <h4>Markdown Mode</h4>
+                        <p>Direct markdown editing with Monaco Editor (VS Code engine)</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-content">
+                        <h4>Split View</h4>
+                        <p>Side-by-side markdown editing and live preview</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">💾</div>
+                    <div class="feature-content">
+                        <h4>Auto-Save</h4>
+                        <p>Automatic saving every 2 seconds with status indicators</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-content">
+                        <h4>AI Rewriting</h4>
+                        <p>Multiple AI models for improving, expanding, or simplifying text</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-content">
+                        <h4>Section Editing</h4>
+                        <p>Select and rewrite specific paragraphs with AI assistance</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-content">
+                        <h4>Responsive Design</h4>
+                        <p>Works perfectly on desktop, tablet, and mobile devices</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">⌨️</div>
+                    <div class="feature-content">
+                        <h4>Keyboard Shortcuts</h4>
+                        <p>Professional shortcuts: Ctrl+S to save, Ctrl+W to close</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding: 20px;">
+            <h3>🔗 Integration with Mission Control</h3>
+            <p style="color: #cccccc; margin-bottom: 20px;">
+                This editor replaces the broken obsidian:// links in Mission Control with a professional, 
+                integrated writing environment that updates the content pipeline automatically.
+            </p>
+            <button class="demo-button" style="max-width: 300px;" onclick="alert('Check out mission-control.html with the integrated editor!')">
+                View Full Mission Control
+            </button>
+        </div>
+    </div>
+    
+    <!-- Include the markdown editor -->
+    <script src="markdown-editor.js"></script>
+</body>
+</html>

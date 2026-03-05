@@ -207,6 +207,11 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## Workspace Hygiene Rule
+
+After modifying any workspace file (SOUL.md, AGENTS.md, TOOLS.md, USER.md, HEARTBEAT.md): does it belong here (always-loaded), in a skill (on-demand), or in memory (historical)? If it's only relevant to specific tasks, move it to a skill. Never let workspace root bloat past these core files:
+- AGENTS.md, SOUL.md, USER.md, IDENTITY.md, TOOLS.md, HEARTBEAT.md, MEMORY.md
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.

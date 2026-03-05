@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyphr. Brand Guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Serif+Display&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0F0F0F;
+    --paper: #FAFAF8;
+    --stone: #1A1A1A;
+    --smoke: #2A2A2A;
+    --ash: #6B6B6B;
+    --mist: #9A9A9A;
+    --cloud: #E8E6E2;
+    --warmwhite: #F5F3EF;
+    --accent-ember: #C45A3C;
+    --accent-ember-soft: #D4765D;
+    --accent-sage: #5A7A6A;
+    --accent-sage-soft: #7A9A8A;
+    --accent-indigo: #4A5A8A;
+    --caution: #B8963A;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+    --jp: 'Noto Sans JP', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--stone);
+    line-height: 1.7;
+    font-size: 15px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === COVER === */
+  .cover {
+    min-height: 100vh;
+    background: var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60%;
+    height: 80%;
+    background: radial-gradient(ellipse, rgba(90, 122, 106, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-version {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mist);
+    margin-bottom: 60px;
+    font-weight: 500;
+  }
+
+  .cover h1 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 7vw, 96px);
+    color: var(--paper);
+    letter-spacing: -1px;
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+
+  .cover-sub {
+    font-family: var(--sans);
+    font-size: 18px;
+    color: var(--mist);
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .cover-badge {
+    position: absolute;
+    top: 80px;
+    right: 80px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--jp);
+    font-size: 28px;
+    color: rgba(255,255,255,0.15);
+    letter-spacing: 2px;
+  }
+
+  /* === SECTIONS === */
+  .section {
+    padding: 100px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-dark {
+    background: var(--ink);
+    color: var(--paper);
+    max-width: 100%;
+    padding: 100px 80px;
+  }
+
+  .section-dark .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-warm {
+    background: var(--warmwhite);
+    max-width: 100%;
+    padding: 100px 80px;
+  }
+
+  .section-warm .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--mist);
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+
+  .section-dark .section-label {
+    color: var(--ash);
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.15;
+    margin-bottom: 32px;
+    letter-spacing: -0.5px;
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+  }
+
+  h4 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 12px;
+  }
+
+  p {
+    max-width: 640px;
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--ash);
+    max-width: 560px;
+  }
+
+  .section-dark .lead {
+    color: var(--mist);
+  }
+
+  /* === DIVIDER === */
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: var(--cloud);
+    margin: 48px 0;
+  }
+
+  .section-dark .divider {
+    background: var(--smoke);
+  }
+
+  /* === GRID LAYOUTS === */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  /* === BRAND IDENTITY CARD === */
+  .identity-card {
+    border: 1px solid var(--cloud);
+    padding: 40px;
+    border-radius: 2px;
+  }
+
+  .identity-card h3 {
+    margin-bottom: 12px;
+  }
+
+  .identity-card p {
+    font-size: 14px;
+    color: var(--ash);
+    line-height: 1.6;
+  }
+
+  /* === COLOR SWATCHES === */
+  .swatch-group {
+    margin-top: 48px;
+  }
+
+  .swatch-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .swatch {
+    width: 120px;
+  }
+
+  .swatch-color {
+    width: 120px;
+    height: 80px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .swatch-name {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+
+  .swatch-hex {
+    font-size: 11px;
+    color: var(--mist);
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+
+  /* === TYPOGRAPHY SPECIMENS === */
+  .type-specimen {
+    margin-top: 48px;
+    padding: 48px;
+    background: var(--warmwhite);
+    border-radius: 4px;
+  }
+
+  .type-sample-display {
+    font-family: var(--serif);
+    font-size: 56px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    color: var(--stone);
+  }
+
+  .type-sample-body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ash);
+    max-width: 480px;
+  }
+
+  .type-meta {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mist);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  /* === VOICE EXAMPLES === */
+  .voice-example {
+    border-left: 2px solid var(--cloud);
+    padding: 24px 32px;
+    margin: 24px 0;
+    background: rgba(0,0,0,0.015);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .section-dark .voice-example {
+    border-left-color: var(--smoke);
+    background: rgba(255,255,255,0.03);
+  }
+
+  .voice-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-sage);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .voice-label.dont {
+    color: var(--accent-ember);
+  }
+
+  .voice-text {
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--stone);
+  }
+
+  .section-dark .voice-text {
+    color: var(--cloud);
+  }
+
+  /* === PRINCIPLE CARDS === */
+  .principle {
+    padding: 40px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px;
+  }
+
+  .principle-number {
+    font-family: var(--serif);
+    font-size: 36px;
+    color: var(--accent-sage-soft);
+    opacity: 0.5;
+    margin-bottom: 16px;
+  }
+
+  .principle h3 {
+    color: var(--paper);
+    margin-bottom: 12px;
+  }
+
+  .principle p {
+    font-size: 14px;
+    color: var(--mist);
+    line-height: 1.6;
+  }
+
+  /* === UX TONE === */
+  .tone-card {
+    padding: 32px;
+    border: 1px solid var(--cloud);
+    border-radius: 4px;
+  }
+
+  .tone-card.do {
+    border-left: 3px solid var(--accent-sage);
+  }
+
+  .tone-card.dont {
+    border-left: 3px solid var(--accent-ember);
+  }
+
+  .tone-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+
+  .tone-tag.do {
+    background: rgba(90, 122, 106, 0.1);
+    color: var(--accent-sage);
+  }
+
+  .tone-tag.dont {
+    background: rgba(196, 90, 60, 0.1);
+    color: var(--accent-ember);
+  }
+
+  .tone-copy {
+    font-size: 15px;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+
+  /* === UI MOCK === */
+  .ui-mock {
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 40px;
+    max-width: 320px;
+  }
+
+  .ui-mock-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 20px;
+  }
+
+  .ui-mock-text {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--cloud);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .ui-mock-text strong {
+    font-weight: 500;
+    color: var(--paper);
+  }
+
+  /* === TABLE === */
+  .brand-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+    font-size: 14px;
+  }
+
+  .brand-table th {
+    text-align: left;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mist);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--cloud);
+  }
+
+  .brand-table td {
+    padding: 16px 16px 16px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .section-dark .brand-table th {
+    border-bottom-color: var(--smoke);
+  }
+
+  .section-dark .brand-table td {
+    border-bottom-color: rgba(255,255,255,0.05);
+    color: var(--mist);
+  }
+
+  /* === FOOTER === */
+  .footer {
+    padding: 60px 80px;
+    background: var(--ink);
+    color: var(--ash);
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  /* === CALLOUT === */
+  .callout {
+    padding: 32px 40px;
+    background: rgba(90, 122, 106, 0.06);
+    border-radius: 4px;
+    margin: 32px 0;
+    border: 1px solid rgba(90, 122, 106, 0.12);
+  }
+
+  .callout p {
+    font-size: 14px;
+    color: var(--stone);
+    max-width: 100%;
+  }
+
+  .callout-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-sage);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  /* === JP ACCENT === */
+  .jp-accent {
+    font-family: var(--jp);
+    font-weight: 300;
+    opacity: 0.4;
+    font-size: 14px;
+    letter-spacing: 4px;
+  }
+
+  /* === SPACING UTILS === */
+  .mt-0 { margin-top: 0; }
+  .mt-24 { margin-top: 24px; }
+  .mt-48 { margin-top: 48px; }
+  .mb-0 { margin-bottom: 0; }
+  .mb-8 { margin-bottom: 8px; }
+  .mb-48 { margin-bottom: 48px; }
+
+  @media (max-width: 900px) {
+    .cover { padding: 48px; }
+    .section, .section-dark, .section-warm { padding: 60px 32px; }
+    .section-dark .inner, .section-warm .inner { max-width: 100%; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .cover-badge { display: none; }
+    .swatch-row { gap: 12px; }
+    .swatch { width: 100px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================== COVER ============================== -->
+<div class="cover">
+  <div class="cover-badge">型</div>
+  <div class="cover-version">Brand Guidelines · v1.0 · February 2026</div>
+  <h1>Cyphr</h1>
+  <p class="cover-sub">A professional recording tool for movement artists. These guidelines define how Cyphr looks, speaks, and feels across every touchpoint.</p>
+</div>
+
+<!-- ============================== BRAND ESSENCE ============================== -->
+<div class="section">
+  <div class="section-label">01. Brand Essence</div>
+  <h2>The practice deserves<br>a real tool.</h2>
+  <p class="lead">Cyphr exists to serve movement artists and the creative ecosystem around them. It treats dance (freestyle, choreography, battles, sessions) with the same care and intention that professional creative suites treat filmmaking, photography, or music production.</p>
+
+  <div class="divider"></div>
+
+  <div class="grid-2">
+    <div>
+      <h3>Brand Promise</h3>
+      <p>Put in your headphones, hit record, and dance. Cyphr handles the rest. Perfect sync, clean capture, zero friction. But it doesn't stop at recording. Cyphr connects dancers to music, producers to audiences, and artists to the tools that deepen their practice. Your creative world, in one place.</p>
+    </div>
+    <div>
+      <h3>Core Belief</h3>
+      <p>Movement is a legitimate, rigorous artistic practice. It's also one of the most joyful things a person can do. The tools that serve it should reflect both. Not with gimmicks or novelty, but with quiet competence, deep respect for the work, and an experience that's genuinely enjoyable to use.</p>
+    </div>
+  </div>
+
+  <div class="callout mt-48">
+    <div class="callout-label">North Star</div>
+    <p>Cyphr should feel the way a great session feels. Focused when you need depth. Fun when you're just vibing. Easy to pick up, simple to use, and always in service of the movement. The technology disappears. The art stays. And underneath it all, a thriving creative economy connects the people who make the music with the people who move to it.</p>
+  </div>
+</div>
+
+<!-- ============================== BRAND POSITIONING ============================== -->
+<div class="section-dark">
+  <div class="inner">
+    <div class="section-label">02. Brand Positioning</div>
+    <h2>Where Cyphr lives</h2>
+    <p class="lead">Cyphr sits at a unique intersection: the creative capture of TikTok, the visual identity of Instagram, the music experience of Spotify, and the artist economy of a distribution platform. All channeled through the lens of a professional tool built specifically for movement artists and the producers who fuel them.</p>
+
+    <div class="grid-4 mt-48">
+      <div class="principle">
+        <div class="principle-number">I</div>
+        <h3>Professional, Not Corporate</h3>
+        <p>Think DaVinci Resolve, not Canva. Cyphr earns respect through competence, not branding tricks. It's a real tool that honors the work. The way Steezy honors dance education, the way Beyond the Moves honors freestyle development.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-number">II</div>
+        <h3>Calm, Not Cold</h3>
+        <p>Zen-inspired simplicity with warmth underneath. The interface creates a sense of safety. A space where creative vulnerability feels protected, not exposed.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-number">III</div>
+        <h3>Deep and Light</h3>
+        <p>Cyphr holds both energies. The depth of a late-night solo session and the lightness of hitting record just to see what happens. It's a tool for growth and a tool for play. Both are real practice.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-number">IV</div>
+        <h3>Culturally Native</h3>
+        <p>Cyphr speaks the language of the community it serves. Cyphers, sessions, sets, rounds. Juste Debout, Summer Dance Forever. This isn't a tech company building for dancers. It's a tool that comes from the culture.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h4>Platform DNA</h4>
+    <p style="color: var(--mist); max-width: 640px;">Cyphr draws from the best of existing platforms, but reframes everything through the specific needs of movement artists and music creators.</p>
+    <table class="brand-table mt-24">
+      <thead>
+        <tr>
+          <th style="width: 25%;">Borrowed From</th>
+          <th style="width: 35%;">What We Take</th>
+          <th>How Cyphr Makes It Ours</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color: var(--paper);">TikTok</td>
+          <td>Full-screen vertical capture, minimal UI during recording, instant feel</td>
+          <td style="color: var(--paper);">No algorithm, no feed, no audience pressure. Just the capture experience.</td>
+        </tr>
+        <tr>
+          <td style="color: var(--paper);">Instagram</td>
+          <td>Visual polish, stories-like review flow, swipe-based interactions</td>
+          <td style="color: var(--paper);">Personal archive, not performance. Your footage is for you and your practice first.</td>
+        </tr>
+        <tr>
+          <td style="color: var(--paper);">Spotify</td>
+          <td>Music browsing, playlist management, audio quality standards</td>
+          <td style="color: var(--paper);">Music selected for movement, not passive listening. Discovery oriented around dance.</td>
+        </tr>
+        <tr>
+          <td style="color: var(--paper);">DistroKid / Bandcamp</td>
+          <td>Creator economy, direct artist support, upload and distribute</td>
+          <td style="color: var(--paper);">Producers upload music, dancers discover and purchase. A direct creative economy.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="divider"></div>
+
+    <h4>Cultural Positioning</h4>
+    <p style="color: var(--mist); max-width: 640px;">Cyphr exists in the same world as these brands and communities. It should feel like a peer, not an outsider.</p>
+    <table class="brand-table mt-24">
+      <thead>
+        <tr>
+          <th style="width: 30%;">Reference</th>
+          <th style="width: 35%;">What They Represent</th>
+          <th>What Cyphr Shares</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color: var(--paper);">Steezy.co</td>
+          <td>Professional dance education platform</td>
+          <td style="color: var(--paper);">Treating dance as a real craft. Clean, professional design. Respect for the art form.</td>
+        </tr>
+        <tr>
+          <td style="color: var(--paper);">Beyond the Moves<br><span style="font-size: 11px; color: var(--ash);">Nickel Yudat</span></td>
+          <td>Freestyle development program focused on depth, artistry, and creative process</td>
+          <td style="color: var(--paper);">The ideal audience. Practitioners who value depth over spectacle. Flow state seekers. The reflective practice ethos.</td>
+        </tr>
+        <tr>
+          <td style="color: var(--paper);">Project Home<br><span style="font-size: 11px; color: var(--ash);">Larkin Poynton</span></td>
+          <td>Community-centered dance culture, authenticity, connection</td>
+          <td style="color: var(--paper);">Built from within the community. Cultural fluency. Not extractive. Contributive.</td>
+        </tr>
+        <tr>
+          <td style="color: var(--paper);">Juste Debout /<br>Summer Dance Forever</td>
+          <td>Major international freestyle events, global battle culture</td>
+          <td style="color: var(--paper);">The global stage that Cyphr users are training for, documenting, and representing.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="divider"></div>
+
+    <h4>What Cyphr Is Not</h4>
+    <table class="brand-table">
+      <thead>
+        <tr>
+          <th style="width: 50%;">Not This</th>
+          <th>But This</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A social media platform you can't escape</td>
+          <td>A practice tool with optional, thoughtful social features you control</td>
+        </tr>
+        <tr>
+          <td>A hype-driven, trendy dance app</td>
+          <td>A quiet, lasting instrument for practice and growth</td>
+        </tr>
+        <tr>
+          <td>An annoying coach with constant prompts</td>
+          <td>A supportive space that stays out of the way</td>
+        </tr>
+        <tr>
+          <td>A generic music streaming service</td>
+          <td>A music discovery platform built around movement</td>
+        </tr>
+        <tr>
+          <td>A gimmicky "AI-powered" novelty</td>
+          <td>Precision engineering hidden behind simplicity</td>
+        </tr>
+        <tr>
+          <td>A tech company building for dancers</td>
+          <td>A tool that comes from the culture it serves</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============================== BRAND PERSONALITY ============================== -->
+<div class="section">
+  <div class="section-label">03. Brand Personality</div>
+  <h2>The trusted practice partner</h2>
+  <p class="lead">If Cyphr were a person, it would be the friend in your crew who always has their setup right. Never shows off about it, just quietly makes the session better for everyone. Whether you're a freestyler chasing flow state, a choreographer building pieces, or a producer making beats for dancers to move to.</p>
+
+  <div class="grid-2 mt-48">
+    <div class="identity-card">
+      <h3>Personality Traits</h3>
+      <p><strong>Grounded.</strong> Confident without being loud. Cyphr doesn't need to prove itself. It just works, consistently.<br><br>
+      <strong>Respectful.</strong> Treats every user like someone who cares about their craft. Whether they're training for Juste Debout or recording their first session in their living room.<br><br>
+      <strong>Warm.</strong> There's care underneath the minimalism. Small, thoughtful details that make you feel held. Not monitored.<br><br>
+      <strong>Present.</strong> Fully focused on the task at hand. No distractions, no upsells, no notifications begging for attention.</p>
+    </div>
+    <div class="identity-card">
+      <h3>Who Cyphr Serves</h3>
+      <p><strong>Freestyle Dancers</strong><br>The core audience. Practitioners who value depth, flow state, and authentic expression. The Beyond the Moves community. Battle dancers, cypher regulars, session heads.<br><br>
+      <strong>Choreographers</strong><br>Artists who build structured pieces and need reliable capture, review, and iteration tools. Future choreography-specific features will serve them more deeply.<br><br>
+      <strong>Music Producers</strong><br>Beat makers and producers who create for movement. They upload music to Cyphr, connect with dancers, and participate in a creative economy that supports both sides of the art.<br><br>
+      <strong>The Thread Between Them</strong><br>Cyphr connects the people who make the music with the people who move to it. That relationship, dancer and producer, is the heartbeat of the ecosystem.</p>
+    </div>
+  </div>
+
+  <div class="callout mt-48">
+    <div class="callout-label">Emotional Design Principle</div>
+    <p>Artistry, creativity, and practice can be deeply personal and emotional. They can also be pure fun. Cyphr creates space for both. The interface should feel like a clean, well-lit studio. Not a stage, not a classroom, not a competition. A space where you can go deep or just play.</p>
+  </div>
+</div>
+
+<!-- ============================== COLOR SYSTEM ============================== -->
+<div class="section-warm">
+  <div class="inner">
+    <div class="section-label">04. Color System</div>
+    <h2>Built on neutrals,<br>accented with intention</h2>
+    <p class="lead">Cyphr's palette is predominantly dark and neutral. The UI should never compete with the dancer's footage. Color is used sparingly and purposefully.</p>
+
+    <div class="swatch-group">
+      <h4>Core Palette · Interface Foundation</h4>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="swatch-color" style="background: #0F0F0F;"></div>
+          <div class="swatch-name">Ink</div>
+          <div class="swatch-hex">#0F0F0F</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #1A1A1A;"></div>
+          <div class="swatch-name">Stone</div>
+          <div class="swatch-hex">#1A1A1A</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #2A2A2A;"></div>
+          <div class="swatch-name">Smoke</div>
+          <div class="swatch-hex">#2A2A2A</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #6B6B6B;"></div>
+          <div class="swatch-name">Ash</div>
+          <div class="swatch-hex">#6B6B6B</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #9A9A9A;"></div>
+          <div class="swatch-name">Mist</div>
+          <div class="swatch-hex">#9A9A9A</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #E8E6E2;"></div>
+          <div class="swatch-name">Cloud</div>
+          <div class="swatch-hex">#E8E6E2</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #FAFAF8;"></div>
+          <div class="swatch-name">Paper</div>
+          <div class="swatch-hex">#FAFAF8</div>
+        </div>
+      </div>
+
+      <h4 class="mt-48">Accent Palette · Functional Color</h4>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="swatch-color" style="background: #C45A3C;"></div>
+          <div class="swatch-name">Ember</div>
+          <div class="swatch-hex">#C45A3C</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #5A7A6A;"></div>
+          <div class="swatch-name">Sage</div>
+          <div class="swatch-hex">#5A7A6A</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #4A5A8A;"></div>
+          <div class="swatch-name">Indigo</div>
+          <div class="swatch-hex">#4A5A8A</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #B8963A;"></div>
+          <div class="swatch-name">Caution</div>
+          <div class="swatch-hex">#B8963A</div>
+        </div>
+      </div>
+
+      <div class="callout mt-48">
+        <div class="callout-label">Color Usage Rules</div>
+        <p><strong>Ember.</strong> Reserved for the record button and active recording states only. This is the most emotionally charged color in the system; overusing it would dilute its meaning.<br><br>
+        <strong>Sage.</strong> Success states, confirmations, calibration complete. The "everything's good" signal.<br><br>
+        <strong>Indigo.</strong> Interactive elements, links, selected states. Quiet authority.<br><br>
+        <strong>Caution.</strong> Storage warnings, calibration needed, non-critical alerts. Never alarming.<br><br>
+        The camera view should always be the brightest, most colorful element on screen. The UI recedes into darkness around it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== TYPOGRAPHY ============================== -->
+<div class="section">
+  <div class="section-label">05. Typography</div>
+  <h2>Clean. Readable. Unhurried.</h2>
+  <p class="lead">Typography in Cyphr is functional first. It should be legible at a glance. Dancers look at their phone between takes, not while reading novels.</p>
+
+  <div class="type-specimen">
+    <div class="type-meta">Display · SF Pro Display / System</div>
+    <div class="type-sample-display">Review & Adjust</div>
+    <p class="type-sample-body" style="margin-top: 24px;">Used for screen titles and key moments. These are the words dancers see when they glance at their phone. They should be immediately clear and feel unhurried.</p>
+  </div>
+
+  <div class="type-specimen" style="margin-top: 24px;">
+    <div class="type-meta">Body · SF Pro Text / System</div>
+    <div style="font-size: 15px; line-height: 1.6; color: var(--ash); max-width: 480px;">
+      Sync your headphones for perfect audio timing. This only takes a moment. We'll play a quick test tone and measure the delay so your final videos are always in the pocket.
+    </div>
+  </div>
+
+  <div class="grid-2 mt-48">
+    <div>
+      <h3>Type Scale (In-App)</h3>
+      <table class="brand-table">
+        <thead><tr><th>Element</th><th>Size / Weight</th></tr></thead>
+        <tbody>
+          <tr><td>Screen titles</td><td>28pt / Semibold</td></tr>
+          <tr><td>Section headers</td><td>20pt / Medium</td></tr>
+          <tr><td>Body text</td><td>15pt / Regular</td></tr>
+          <tr><td>Labels & captions</td><td>12pt / Medium</td></tr>
+          <tr><td>Timer display</td><td>48pt / Light, monospaced</td></tr>
+          <tr><td>Micro text</td><td>10pt / Regular, uppercase tracking</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3>Type Principles</h3>
+      <p><strong>Generous spacing.</strong> Let text breathe. Tight leading and cramped layouts create anxiety. The opposite of what we want.<br><br>
+      <strong>System fonts preferred.</strong> SF Pro renders beautifully on iOS and keeps the app feeling native and fast. No custom fonts needed in-app.<br><br>
+      <strong>No ALL CAPS in body.</strong> Reserve uppercase for tiny labels (10pt or below) and section markers. The app should speak in a calm, conversational register.<br><br>
+      <strong>Monospaced for time.</strong> The recording timer and playback scrubber use monospaced numerals so digits don't shift as they change.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== VOICE & TONE ============================== -->
+<div class="section-dark">
+  <div class="inner">
+    <div class="section-label">06. Voice & Tone</div>
+    <h2>Speak like a practice partner,<br>not a product.</h2>
+    <p class="lead">Cyphr's voice is the friend who respects your craft, gives you space, and only speaks when they have something useful to say. Never an announcer. Never a salesperson. Never an overbearing coach.</p>
+
+    <div class="divider"></div>
+
+    <h4>Voice Attributes</h4>
+    <div class="grid-3 mt-24">
+      <div>
+        <h3 style="color: var(--paper);">Confident</h3>
+        <p style="font-size: 13px; color: var(--mist);">Speaks with quiet certainty. Doesn't hedge or over-explain. Trusts users to understand.</p>
+      </div>
+      <div>
+        <h3 style="color: var(--paper);">Concise</h3>
+        <p style="font-size: 13px; color: var(--mist);">Every word earns its place. If something can be said in 4 words, don't use 12.</p>
+      </div>
+      <div>
+        <h3 style="color: var(--paper);">Warm</h3>
+        <p style="font-size: 13px; color: var(--mist);">Human, not robotic. There's kindness in the brevity. The app cares, it just doesn't need to announce it.</p>
+      </div>
+      <div>
+        <h3 style="color: var(--paper);">Personal</h3>
+        <p style="font-size: 13px; color: var(--mist);">Uses the dancer's first name. Acknowledges their specific progress. Makes them feel seen as an individual, not a user.</p>
+      </div>
+      <div>
+        <h3 style="color: var(--paper);">Encouraging</h3>
+        <p style="font-size: 13px; color: var(--mist);">Supportive and genuine. Recognizes effort and consistency. Says "you've been putting in the work." Never "you're a SUPERSTAR!"</p>
+      </div>
+      <div>
+        <h3 style="color: var(--paper);">Culturally Fluent</h3>
+        <p style="font-size: 13px; color: var(--mist);">Uses dance community language naturally. Not forced, not overboard. It's in the DNA, not the marketing.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h4>In-App Copy Examples</h4>
+
+    <div class="grid-2 mt-24">
+      <div>
+        <div class="voice-example">
+          <div class="voice-label">Cyphr says</div>
+          <div class="voice-text">"Choose Your Track"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Cyphr says</div>
+          <div class="voice-text">"Saved to camera roll."</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Cyphr says</div>
+          <div class="voice-text">"Headphones synced. You're good."</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Cyphr says</div>
+          <div class="voice-text">"Calibration takes a moment. We'll play a tone and measure the delay."</div>
+        </div>
+      </div>
+      <div>
+        <div class="voice-example">
+          <div class="voice-label dont">Not this</div>
+          <div class="voice-text">"🎵 Pick your favorite song to dance to!"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label dont">Not this</div>
+          <div class="voice-text">"Awesome! Your video has been saved successfully! 🎉"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label dont">Not this</div>
+          <div class="voice-text">"Great news! Your headphones are all connected and ready to go!"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label dont">Not this</div>
+          <div class="voice-text">"Let's calibrate! Don't worry, it's super easy and only takes a sec! 😊"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h4>Tone Spectrum by Context</h4>
+    <table class="brand-table mt-24">
+      <thead>
+        <tr>
+          <th style="width: 25%;">Context</th>
+          <th style="width: 25%;">Tone</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Onboarding</td>
+          <td>Warm, brief, respectful</td>
+          <td>"Record yourself dancing to music in your headphones. Cyphr handles the sync."</td>
+        </tr>
+        <tr>
+          <td>Returning user</td>
+          <td>Personal, welcoming</td>
+          <td>"Good to see you, Jordan." / "Welcome back."</td>
+        </tr>
+        <tr>
+          <td>Recording active</td>
+          <td>Silent. UI only.</td>
+          <td>Timer counting. No text. No interruptions. Nothing.</td>
+        </tr>
+        <tr>
+          <td>Post-session</td>
+          <td>Encouraging, grounded</td>
+          <td>"Nice session, Jordan. 14 minutes." / "Saved."</td>
+        </tr>
+        <tr>
+          <td>Milestones</td>
+          <td>Acknowledging, dignified</td>
+          <td>"Your 100th Cyphr. That's real work, Jordan."</td>
+        </tr>
+        <tr>
+          <td>Calibration</td>
+          <td>Clear, patient, no jargon</td>
+          <td>"Tap when you hear the tone. This helps us match your audio to video."</td>
+        </tr>
+        <tr>
+          <td>Error states</td>
+          <td>Honest, calm, solution-first</td>
+          <td>"Headphone connection dropped. Reconnect to continue."</td>
+        </tr>
+        <tr>
+          <td>Saving/export</td>
+          <td>Minimal confirmation</td>
+          <td>"Saved." / "Saved to camera roll."</td>
+        </tr>
+        <tr>
+          <td>Empty states</td>
+          <td>Inviting, not lonely</td>
+          <td>"Your sessions will appear here."</td>
+        </tr>
+        <tr>
+          <td>Insights</td>
+          <td>Observational, supportive</td>
+          <td>"You've been consistent this month, Jordan. 8 sessions."</td>
+        </tr>
+        <tr>
+          <td>Permissions requests</td>
+          <td>Direct, explains the why</td>
+          <td>"Cyphr needs camera and mic access to record your sessions."</td>
+        </tr>
+        <tr>
+          <td>Social features</td>
+          <td>Inviting, zero pressure</td>
+          <td>"Share this reflection?" Simple yes/no. Nothing more.</td>
+        </tr>
+        <tr>
+          <td>Fun moments</td>
+          <td>Light, genuine, warm</td>
+          <td>"That's 7 days straight. You've been locked in, Jordan."</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============================== UX PRINCIPLES ============================== -->
+<div class="section">
+  <div class="section-label">07. UX Principles</div>
+  <h2>Simple to use. Fun to use.<br>Protective of the flow state.</h2>
+  <p class="lead">Every design decision should pass two tests. First: is this easy and enjoyable? Second: does this help the dancer stay in their practice, or does it pull them out? Cyphr should feel effortless. Capturing, recording, training, sessioning, reviewing, reflecting. All of it should be a genuinely fun experience.</p>
+
+  <div class="grid-2 mt-48">
+    <div class="tone-card do">
+      <div class="tone-tag do">Design For</div>
+      <div class="tone-copy">
+        <strong>One-thumb operation.</strong> Every critical action reachable with a single thumb while the phone is propped up or held in one hand.<br><br>
+        <strong>Glanceable information.</strong> Timer, recording state, battery. Visible in a half-second glance between takes.<br><br>
+        <strong>Progressive disclosure.</strong> Show only what's needed now. Volume controls, trim, export options. They surface when relevant, not before.<br><br>
+        <strong>Invisible technology.</strong> Latency compensation, auto-orientation, audio sync. The most impressive features should be the ones users never think about.
+      </div>
+    </div>
+    <div class="tone-card dont">
+      <div class="tone-tag dont">Avoid</div>
+      <div class="tone-copy">
+        <strong>Modal interruptions.</strong> Never pop up dialogs during or immediately after recording. Nothing should steal focus from the work.<br><br>
+        <strong>Cheap gamification.</strong> Cyphr has streaks, milestones, and challenges. But they're designed with taste. No candy-colored badges. No slot-machine dopamine loops. No guilt mechanics. If a gamification element would feel at home in a mobile game targeting teenagers, it doesn't belong in Cyphr.<br><br>
+        <strong>Feature tours and tooltips.</strong> The interface should be self-evident. If something needs a tooltip, it's too complicated.<br><br>
+        <strong>Notification abuse.</strong> Cyphr should never send push notifications that guilt or pressure. It's there when you need it, silent when you don't.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>The Recording Flow Is Sacred</h3>
+  <p>When a dancer is recording, the UI should fade to nearly nothing. The camera feed is the entire experience. The only visible elements should be:</p>
+
+  <div class="grid-3 mt-24">
+    <div style="padding: 24px; background: var(--warmwhite); border-radius: 4px;">
+      <h4 class="mb-8">Always Visible</h4>
+      <p style="font-size: 14px; color: var(--ash);">Recording timer (subtle), record/stop button, recording indicator dot</p>
+    </div>
+    <div style="padding: 24px; background: var(--warmwhite); border-radius: 4px;">
+      <h4 class="mb-8">Fade Out During Recording</h4>
+      <p style="font-size: 14px; color: var(--ash);">Song info, camera flip, timer controls, all non-essential chrome</p>
+    </div>
+    <div style="padding: 24px; background: var(--warmwhite); border-radius: 4px;">
+      <h4 class="mb-8">Never Show During Recording</h4>
+      <p style="font-size: 14px; color: var(--ash);">Alerts, permissions, errors, notifications, anything that could break the moment</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== VISUAL LANGUAGE ============================== -->
+<div class="section-warm">
+  <div class="inner">
+    <div class="section-label">08. Visual Language</div>
+    <h2>Zen studio aesthetics</h2>
+    <p class="lead">The visual language draws from Japanese minimalism, professional creative tools, and the intimate atmosphere of a late-night practice studio.</p>
+
+    <div class="grid-2 mt-48">
+      <div>
+        <h3>Interface Characteristics</h3>
+        <p><strong>Dark by default.</strong> The dark interface recedes behind the camera feed, making the dancer's image the focal point. It also creates a studio-like ambiance and is easier on the eyes during late-night sessions.<br><br>
+        <strong>Rounded but not bubbly.</strong> Use subtle border radius (4-8pt) for cards and controls. Avoid overly rounded corners that feel childish. The record button is the exception. It's a circle because that's universal language.<br><br>
+        <strong>Generous negative space.</strong> Every element should have room to breathe. Tight layouts create cognitive tension. Spacious layouts create calm.<br><br>
+        <strong>Subtle depth, not shadows.</strong> Use opacity changes and slight background tints to create hierarchy. Avoid drop shadows and heavy elevation. They feel dated and heavy.</p>
+      </div>
+      <div>
+        <h3>Motion & Animation</h3>
+        <p><strong>Smooth, organic transitions.</strong> Everything eases in and out gently. No snapping, no bouncing, no spring physics that feel playful. Think: a slow exhale, not a jump.<br><br>
+        <strong>Duration: 200-400ms.</strong> Fast enough to feel responsive, slow enough to feel intentional. The volume panel slides up at 300ms. A deliberate, calm reveal.<br><br>
+        <strong>Fade, don't pop.</strong> Elements that appear during recording (like the time display) should fade in softly. Nothing should suddenly appear and demand attention.<br><br>
+        <strong>Recording transition.</strong> When recording starts, non-essential UI elements should gracefully recede. A slow fade to near-transparency that says "we're stepping back so you can work."</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>Iconography</h3>
+    <p>Use SF Symbols (Apple's native icon system) exclusively. They're consistent, well-crafted, and feel native to iOS. Outlined style, medium weight. Never use custom illustrated icons. They introduce visual noise and an identity that competes with the content.</p>
+
+    <div class="callout mt-24">
+      <div class="callout-label">The Japanese Principle</div>
+      <p>The design is influenced by <em>Ma</em> (間). The Japanese concept of negative space as an active design element, not just emptiness. In Cyphr, what we <em>don't</em> show is as intentional as what we do. Every empty space is a decision to protect focus. This principle also extends to sound: Cyphr should be virtually silent as an app. No click sounds, no haptic celebrations, no audio cues except during calibration.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== MARKETING VOICE ============================== -->
+<div class="section-dark">
+  <div class="inner">
+    <div class="section-label">09. Marketing & External Voice</div>
+    <h2>Earned respect,<br>not forced hype.</h2>
+    <p class="lead">Marketing should feel like word-of-mouth from inside the community. The most powerful sell is a dancer showing their footage and someone asking "how'd you get that sync?"</p>
+
+    <div class="divider"></div>
+
+    <h4>Messaging Hierarchy</h4>
+    <table class="brand-table mt-24">
+      <thead>
+        <tr>
+          <th style="width: 20%;">Level</th>
+          <th style="width: 40%;">Message</th>
+          <th>Use Where</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color: var(--paper);">Tagline</td>
+          <td style="color: var(--paper); font-style: italic;">"Your practice. Perfectly captured."</td>
+          <td>App Store, hero sections, brand moments</td>
+        </tr>
+        <tr>
+          <td style="color: var(--paper);">Value Prop · Dancers</td>
+          <td style="color: var(--paper);">Record yourself dancing to music in your headphones. Perfect sync. No speakers. No editing. Discover music made for movement. Track your growth.</td>
+          <td>App Store description, landing page, onboarding</td>
+        </tr>
+        <tr>
+          <td style="color: var(--paper);">Value Prop · Producers</td>
+          <td style="color: var(--paper);">Upload your music directly to the dancers who'll move to it. A creative economy that respects both sides of the art.</td>
+          <td>Producer onboarding, marketplace pages, outreach</td>
+        </tr>
+        <tr>
+          <td style="color: var(--paper);">Proof</td>
+          <td style="color: var(--paper);">Videos from real dancers showing sync quality, sessions at events like Juste Debout and Summer Dance Forever, producer-dancer connection stories</td>
+          <td>Social media, testimonials, community content</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="divider"></div>
+
+    <h4>Marketing Copy Principles</h4>
+    <div class="grid-2 mt-24">
+      <div>
+        <div class="voice-example">
+          <div class="voice-label">App Store Hero</div>
+          <div class="voice-text">"Dance to your headphones. Cyphr records the video, syncs the audio, and saves it. Ready to share. No speakers. No editing. No sync nightmares."</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Social Post · Dancers</div>
+          <div class="voice-text">"Headphones in. Hit record. The footage is clean. That's it. That's the app."</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Social Post · Producers</div>
+          <div class="voice-text">"Upload your beats. Dancers find them. They move to your music. You get supported. That's the ecosystem."</div>
+        </div>
+      </div>
+      <div>
+        <div class="voice-example">
+          <div class="voice-label dont">Never say</div>
+          <div class="voice-text">"The ULTIMATE dance recording app! 🔥💃 Level up your content game!"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label dont">Never say</div>
+          <div class="voice-text">"Join thousands of dancers already using Cyphr! Don't miss out! Download NOW!"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout mt-48" style="background: rgba(90, 122, 106, 0.08); border-color: rgba(90, 122, 106, 0.15);">
+      <div class="callout-label">Community Language. Use Naturally</div>
+      <p style="color: var(--cloud);">Words like <em>session, sets, clean, in the pocket, tapping in, vibe, cypher, rounds, runs</em> can appear in marketing. But only when they feel natural, never forced. Reference real events and figures the community respects. Juste Debout, Summer Dance Forever, the kind of work Nickel Yudat and Larkin Poynton champion. The app name itself (Cyphr) is a nod to the culture. Authenticity comes from understanding and participation, not vocabulary.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== COMMUNITY VOICE ============================== -->
+<div class="section">
+  <div class="section-label">10. Community Voice</div>
+  <h2>This is how they<br>actually talk about it.</h2>
+  <p class="lead">The most powerful brand language doesn't come from a guidelines doc. It comes from users. These are real words from real dancers using Cyphr. They validate the brand, and they show exactly how to speak about the product in marketing.</p>
+
+  <div class="divider"></div>
+
+  <h3>Testimonial Themes</h3>
+  <p>Every testimonial maps to a core brand pillar. When selecting quotes for marketing, match the testimonial to the message you're reinforcing.</p>
+
+  <div class="grid-2 mt-48">
+    <div class="identity-card">
+      <h4 class="mb-8">Flow State & Immersion</h4>
+      <p style="font-size: 14px; color: var(--ash); line-height: 1.7;">
+        <em>"I'm able to tap into the music deeper because the music is playing directly in my ears."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@jenivision</span><br><br>
+        <em>"It removed the background noise and let the music go straight into the body."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">Eric Nizet, BTM Community</span><br><br>
+        <em>"Instantly dubbed my audio so I can streamline my lab and stay immersed in flow state."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@markuspaolo</span><br><br>
+        <em>"Less focus on being in-frame, more focus on just flowing."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@Jazzy Cadiente</span>
+      </p>
+    </div>
+    <div class="identity-card">
+      <h4 class="mb-8">Simplicity & Ease</h4>
+      <p style="font-size: 14px; color: var(--ash); line-height: 1.7;">
+        <em>"Made capturing footage insanely simple & easy."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@Jesse Sykes</span><br><br>
+        <em>"Makes me way more likely to record myself dancing because I don't have to stress about syncing the audio."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@rubydenae</span><br><br>
+        <em>"Recording footage almost passive. Incredibly helpful for someone like me who always forgets to record myself."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@Brendan Falsey</span><br><br>
+        <em>"No fuss with overlaying the music! Game changer."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@feliciahope</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="grid-2 mt-24">
+    <div class="identity-card">
+      <h4 class="mb-8">Freedom & Joy</h4>
+      <p style="font-size: 14px; color: var(--ash); line-height: 1.7;">
+        <em>"After the first song I was like I don't want to stop. Like this feels so fun."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@danyelmoulton</span><br><br>
+        <em>"I felt like my partner and I were in our own world."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@franzsulit</span><br><br>
+        <em>"It's not just for professional dancers, it's for us who forgot to play the same way... It's time to play. To forget. ... to connect."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@Marie Silviera</span><br><br>
+        <em>"I can just freestyle and I don't need to play music out loud. I can just dance with my headphones on and I won't be a public nuisance (especially in Japan)."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">Denise Chong, traveling to Tokyo & Seoul</span>
+      </p>
+    </div>
+    <div class="identity-card">
+      <h4 class="mb-8">Real Life Unlocked</h4>
+      <p style="font-size: 14px; color: var(--ash); line-height: 1.7;">
+        <em>"Maddie hears nothing. I hear everything. Can immediately watch back. And video download is ready to go."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@michelledances2 (practicing while daughter sleeps)</span><br><br>
+        <em>"This app at least for today has truly allowed me to like release... people don't care. You could be dancing in public and it's fine."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@danyelmoulton (2am freestyle on a morning walk)</span><br><br>
+        <em>"The ocean was very loud and there were people all over the place. Being able to play my music in my headphones while recording lets me really feel immersed."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@feliciahope (recording at the beach)</span><br><br>
+        <em>"Made by a mover FOR movers."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@lextepisode</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="grid-2 mt-24">
+    <div class="identity-card">
+      <h4 class="mb-8">Growth & Practice Depth</h4>
+      <p style="font-size: 14px; color: var(--ash); line-height: 1.7;">
+        <em>"This has been really insightful for my internal practicing."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@Chaunick (Nick Chau)</span><br><br>
+        <em>"It really helped me structure my dance... I spent the whole afternoon playing with it."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">Eric Nizet</span><br><br>
+        <em>"Your app helps me get completely closer to the music and lets it enter the body directly, eliminating external noise and allowing full concentration."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">Eric Nizet, BTM Community post</span>
+      </p>
+    </div>
+    <div class="identity-card">
+      <h4 class="mb-8">Choreography & Versatility</h4>
+      <p style="font-size: 14px; color: var(--ash); line-height: 1.7;">
+        <em>"It's such a great tool especially for like choreography... needing to have that footage already synced up with the music."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@joykwon</span><br><br>
+        <em>"I come from a choreography world and recently made some dope friends in the freestyle world. Transitioning from 'copy these moves and perform it' to just feeling and transmuting music is some sh*t."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@lextepisode</span><br><br>
+        <em>"This is actually crazyyyy. The music was synced right up to the video when I pressed record."</em><br>
+        <span style="font-size: 12px; color: var(--mist);">@jenivision</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>The Featured Story</h3>
+  <p>Some testimonials are worth reading in full. Danyel Moulton's story is the single best articulation of what Cyphr does for someone. Use it as the anchor testimonial in long-form marketing.</p>
+
+  <div class="voice-example mt-24" style="border-left-color: var(--accent-sage); padding: 32px 40px;">
+    <div class="voice-label">@danyelmoulton</div>
+    <div class="voice-text" style="font-size: 14px; line-height: 1.8;">
+      "It is literally 2 AM. I just got out of rehearsal but on my morning walk I saw the space and I was like oh my god that would be so beautiful to freestyle. And I walked past it because there were people around and I started getting like nervous and anxious. But I walked back around to the spot like 20 minutes later and I was like okay just do like one round. Like you have the app. Like just set it up."<br><br>
+      "And literally this very round ended up being 10 minutes... And after the first song I was like I don't want to stop. Like this feels so fun."<br><br>
+      "It felt so freeing. So I'm going to actually continue this practice on my morning walks... But this app at least for today has truly allowed me to like release and I also noticed that like people don't care. Like people don't care. You could be dancing in public and it's fine."
+    </div>
+  </div>
+
+  <div class="callout mt-48">
+    <div class="callout-label">Why This Story Matters</div>
+    <p>Danyel's story hits every brand pillar at once. Anxiety about public practice. The decision to try anyway because the tool makes it easy. The flow state that kicks in. The realization that people don't care. The joy. The commitment to keep going. This isn't a product review. This is someone's relationship with their practice changing in real time. That's what Cyphr does.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>Using Testimonials in Marketing</h3>
+
+  <div class="grid-2 mt-24">
+    <div class="tone-card do">
+      <div class="tone-tag do">Do</div>
+      <div class="tone-copy">
+        <strong>Let them speak in their own voice.</strong> Don't clean up the grammar, don't remove the "like"s and "um"s. The rawness is the authenticity. Danyel's story works because it sounds exactly like a real person talking.<br><br>
+        <strong>Match testimonial to context.</strong> Use @Jesse Sykes ("insanely simple & easy") for App Store screenshots. Use @danyelmoulton for long-form landing pages. Use @michelledances2 for the parent/shared-space audience.<br><br>
+        <strong>Show the range.</strong> Cyphr serves freestylers, choreographers, teachers, beginners, parents, travelers. The testimonials prove it. Use the diversity of stories to show the diversity of users.<br><br>
+        <strong>Pair short quotes with long stories.</strong> A punchy pull-quote grabs attention. The full story builds conviction. Use both.
+      </div>
+    </div>
+    <div class="tone-card dont">
+      <div class="tone-tag dont">Don't</div>
+      <div class="tone-copy">
+        <strong>Don't over-edit.</strong> These testimonials work because they're real. Over-polishing them into marketing copy kills the thing that makes them powerful.<br><br>
+        <strong>Don't only show pros.</strong> Marie Silviera's quote about "us who forgot to play" is just as powerful as a professional dancer's endorsement. Cyphr is for anyone who moves.<br><br>
+        <strong>Don't strip context.</strong> "Maddie hears nothing. I hear everything" means nothing without knowing Maddie is her daughter. The context is the story.<br><br>
+        <strong>Don't fabricate pull-quotes.</strong> The short headlines on cyphrcam.com ("Insanely simple." / "Deeper into the music.") are great. They're pulled from the real words. Never invent a quote and attribute it to a user.
+      </div>
+    </div>
+  </div>
+
+  <div class="callout mt-48">
+    <div class="callout-label">The Language Users Gave Us</div>
+    <p>Notice the words dancers naturally use to describe Cyphr: "game changer," "flow state," "immersed," "freeing," "so fun," "no fuss," "passive," "streamlined." They don't talk about features. They talk about feelings and freedom. Marketing should follow their lead. Sell the feeling, not the feature list.</p>
+  </div>
+</div>
+
+<!-- ============================== EMOTIONAL DESIGN ============================== -->
+<div class="section">
+  <div class="section-label">11. Emotional Design</div>
+  <h2>Deep when it needs to be.<br>Light when it wants to be.</h2>
+  <p class="lead">The difference between a tool people use and a tool people love is in the details they can't quite articulate. Cyphr balances two energies: the depth of reflective practice and the lightness of just dancing because it feels good. Both live here.</p>
+
+  <div class="grid-2 mt-48">
+    <div class="identity-card">
+      <h3>Small Moments of Care</h3>
+      <p><strong>The recording fade.</strong> When you hit record, the UI gently recedes. It's the app saying "I'll be here when you're done. Go dance."<br><br>
+      <strong>The save confirmation.</strong> A brief, quiet confirmation. No fanfare, no confetti. Just acknowledgment that your work is safe.<br><br>
+      <strong>Volume presets.</strong> "Music Only," "Balanced," "Natural." These aren't just functional, they show that someone thought about how dancers actually use their footage.<br><br>
+      <strong>No time limits.</strong> This is a statement of respect. Your session lasts as long as your session lasts. The tool doesn't get to decide when you're done.</p>
+    </div>
+    <div class="identity-card">
+      <h3>Emotional Safety & Encouragement</h3>
+      <p><strong>It knows your name.</strong> Cyphr addresses you personally. "Nice session, Jordan." Not "User123." Not "Dear valued customer." Your name, like a friend would use it.<br><br>
+      <strong>Supportive, not performative.</strong> Encouragement is genuine and grounded. "You've been consistent this month" hits different than "OMG AMAZING JOB! 🎉🔥" The app believes in you without shouting about it.<br><br>
+      <strong>Your data serves you.</strong> Streaks, milestones, session history. These are your training log. They reflect your commitment back to you and help you see your own growth over time.<br><br>
+      <strong>Always available.</strong> No login walls blocking recording. No subscription gate on core features. When inspiration hits at 2am, Cyphr is ready.</p>
+    </div>
+  </div>
+
+  <div class="callout mt-48">
+    <div class="callout-label">The Underlying Promise</div>
+    <p>Every design decision in Cyphr comes back to two questions. <em>"Is this easy and enjoyable?"</em> and <em>"Does this protect the dancer's relationship with their practice?"</em> If a feature creates anxiety, comparison, or self-consciousness, it doesn't ship. If it creates calm, focus, joy, or creative freedom, it belongs. Cyphr holds both energies. The depth of a solo session at 2am and the lightness of dancing with friends. Both are real. Both matter.</p>
+  </div>
+</div>
+
+<!-- ============================== PRACTICE ECOSYSTEM ============================== -->
+<div class="section-warm">
+  <div class="inner">
+    <div class="section-label">12. The Practice Ecosystem</div>
+    <h2>Growth tools that<br>respect the artist.</h2>
+    <p class="lead">Cyphr goes beyond recording. Analytics, journaling, challenges, streaks, milestones, and spaced repetition insights. A complete ecosystem designed to deepen your practice and help you grow as an artist. These features are engaging and encouraging, but never gimmicky or trendy.</p>
+
+    <div class="callout mt-48">
+      <div class="callout-label">The Design Philosophy</div>
+      <p>Gamification in Cyphr serves the artist's growth. Not the app's engagement metrics. Streaks track real commitment. Milestones mark real progress. Insights surface real patterns. The difference isn't whether gamification exists, it's whether it respects the person using it. Cyphr's gamification feels like a training log in a martial arts dojo. Earned, meaningful, and personal. Not like a mobile game trying to keep you tapping.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>Personalization & Encouragement</h3>
+    <p>Cyphr knows your name and uses it. The app addresses you like a practice partner who's been in the room with you. Supportive, encouraging, and real.</p>
+
+    <div class="grid-2 mt-24">
+      <div>
+        <div class="voice-example">
+          <div class="voice-label">Cyphr says</div>
+          <div class="voice-text">"Good to see you back, Jordan."</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Cyphr says</div>
+          <div class="voice-text">"That's 7 days straight. You've been locked in."</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Cyphr says</div>
+          <div class="voice-text">"You made your 100th Cyphr. That's real work, Jordan."</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Cyphr says</div>
+          <div class="voice-text">"3 sessions this week. You're building something."</div>
+        </div>
+      </div>
+      <div>
+        <div class="voice-example">
+          <div class="voice-label dont">Not this</div>
+          <div class="voice-text">"OMG AMAZING JOB! 🎉🔥 You're on FIRE!"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label dont">Not this</div>
+          <div class="voice-text">"Streak alert!! 🔥🔥🔥 7 DAYS! Don't break it!!"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label dont">Not this</div>
+          <div class="voice-text">"🏆 ACHIEVEMENT UNLOCKED: Century Club! Share with friends?"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label dont">Not this</div>
+          <div class="voice-text">"Hey bestie! You've been busy this week! Keep slaying! 💅"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout mt-24">
+      <div class="callout-label">Encouragement Tone Guide</div>
+      <p>The voice is a respected peer who sees your work and acknowledges it. Grounded. Specific. Warm but not bubbly. Think of how a mentor at the studio would nod and say "you've been putting in the work." Not how a fitness app would scream "CRUSHING IT!" The encouragement should make the dancer feel <em>seen</em>, not performed at.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>Streaks & Practice Tracking</h3>
+    <p>Streaks are a training log. They help dancers see their own consistency and commitment. How long they've been showing up. How many hours they've put in. This is real data about real practice, presented with respect.</p>
+
+    <div class="grid-2 mt-24">
+      <div class="tone-card do">
+        <div class="tone-tag do">How Streaks Work in Cyphr</div>
+        <div class="tone-copy">
+          <strong>Track real commitment.</strong> Session counts, total hours danced, consecutive practice days. These numbers represent genuine dedication and should feel weighty, not disposable.<br><br>
+          <strong>Celebrate quietly.</strong> When a streak hits a milestone, acknowledge it with a brief, dignified moment. Not a confetti explosion. A clean screen, the number, a line of encouragement. Let the achievement speak for itself.<br><br>
+          <strong>No punishment for breaking.</strong> If a streak breaks, Cyphr doesn't guilt-trip. No "You lost your streak 😢" No sad faces. Life happens. The data is still there. "47 sessions total. 12-day best streak." The focus stays on what you've built, not what you've missed.<br><br>
+          <strong>Show the bigger picture.</strong> Streaks are one data point inside a larger practice history. They sit alongside total sessions, favorite songs, average session length, and practice patterns. It's a full portrait, not a single scoreboard.
+        </div>
+      </div>
+      <div class="tone-card dont">
+        <div class="tone-tag dont">Lines Cyphr Won't Cross</div>
+        <div class="tone-copy">
+          <strong>Anxiety-driven retention.</strong> "Don't break your streak!" or "You're about to lose your progress!" This language weaponizes commitment against the user. Cyphr will never do this.<br><br>
+          <strong>Comparative streaks.</strong> No "Dancers like you average 5 sessions a week." No leaderboards. Your streak is yours. Nobody else's practice has any bearing on it.<br><br>
+          <strong>Fake urgency.</strong> No countdown timers on streaks. No "only 2 hours left to keep your streak alive!" If a dancer practices, it should be because they want to move, not because an app is holding their number hostage.<br><br>
+          <strong>Over-notification.</strong> Streaks are visible when you open the app. They don't send push notifications. They don't chase you. They're there when you check in, quiet when you don't.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>Milestones</h3>
+    <p>Milestones mark meaningful moments in a dancer's Cyphr journey. They're designed to feel like real accomplishments. Because they are.</p>
+
+    <div class="grid-3 mt-24">
+      <div style="padding: 32px; background: white; border: 1px solid var(--cloud); border-radius: 4px; text-align: center;">
+        <div style="font-family: var(--serif); font-size: 42px; color: var(--stone); margin-bottom: 8px;">10</div>
+        <div style="font-size: 13px; color: var(--ash); font-weight: 500;">Your 10th Cyphr</div>
+        <div style="font-size: 12px; color: var(--mist); margin-top: 8px; font-style: italic;">"You're building a practice, Jordan."</div>
+      </div>
+      <div style="padding: 32px; background: white; border: 1px solid var(--cloud); border-radius: 4px; text-align: center;">
+        <div style="font-family: var(--serif); font-size: 42px; color: var(--stone); margin-bottom: 8px;">100</div>
+        <div style="font-size: 13px; color: var(--ash); font-weight: 500;">Your 100th Cyphr</div>
+        <div style="font-size: 12px; color: var(--mist); margin-top: 8px; font-style: italic;">"That's real work. This is what dedication looks like."</div>
+      </div>
+      <div style="padding: 32px; background: white; border: 1px solid var(--cloud); border-radius: 4px; text-align: center;">
+        <div style="font-family: var(--serif); font-size: 42px; color: var(--stone); margin-bottom: 8px;">1,000</div>
+        <div style="font-size: 13px; color: var(--ash); font-weight: 500;">Your 1,000th Cyphr</div>
+        <div style="font-size: 12px; color: var(--mist); margin-top: 8px; font-style: italic;">"A thousand sessions. You're a practitioner."</div>
+      </div>
+    </div>
+
+    <div class="grid-2 mt-48">
+      <div>
+        <h4>Milestone Design Principles</h4>
+        <p><strong>Earned weight.</strong> Milestones should feel like turning to a new chapter in a book, not like winning a prize at an arcade. The visual treatment is clean and minimal. The number itself is the statement.<br><br>
+        <strong>Personalized language.</strong> Use the dancer's name. Keep the copy short, specific, and genuinely encouraging. One sentence that makes them feel seen.<br><br>
+        <strong>Non-blocking.</strong> Milestones appear as a moment of acknowledgment, not a modal that demands attention. They can be dismissed with a tap and revisited later in the practice history.<br><br>
+        <strong>Cumulative, not competitive.</strong> Milestones count total Cyphrs, total hours, sessions in a style. Always measuring the dancer against their own past, never against others.</p>
+      </div>
+      <div>
+        <h4>Milestone Tone Spectrum</h4>
+
+        <div class="voice-example">
+          <div class="voice-label">Early milestones (1-25)</div>
+          <div class="voice-text">Warm and welcoming. "Your first Cyphr. This is where it starts." The tone says: we're glad you're here.</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Mid milestones (50-250)</div>
+          <div class="voice-text">Acknowledging and grounded. "50 sessions. You're putting in the work." The tone says: we see your commitment.</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Deep milestones (500+)</div>
+          <div class="voice-text">Reverent and respectful. "A thousand sessions. You're a practitioner." The tone says: this is rare, and it matters.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>Practice Analytics & Insights</h3>
+    <p>Cyphr tracks meaningful data. Session duration, frequency, total hours, songs used, time of day, patterns. It surfaces insights that help dancers understand their own practice and progress toward their movement goals.</p>
+
+    <div class="grid-2 mt-24">
+      <div class="tone-card do">
+        <div class="tone-tag do">Design Approach</div>
+        <div class="tone-copy">
+          <strong>Empowering, not overwhelming.</strong> Present data cleanly and visually. A calm heatmap of practice days, a simple hours-danced graph, a list of most-played songs. The data should feel approachable. Like reading your own handwriting, not deciphering a stock chart.<br><br>
+          <strong>Pattern recognition.</strong> Help dancers see what they can't see themselves. "You tend to have longer sessions on Sundays." "You've been gravitating toward slower tempos this month." Observations, not prescriptions.<br><br>
+          <strong>Goal-connected.</strong> Let dancers set their own movement goals and see progress toward them. The app reflects back what they've defined as important. Not what an algorithm thinks matters.<br><br>
+          <strong>Not overly techy.</strong> The analytics should feel intuitive to someone who's never looked at a dashboard in their life. If it requires explanation, simplify it. Clean labels, clear numbers, obvious meaning.
+        </div>
+      </div>
+      <div class="tone-card do">
+        <div class="tone-tag do">Spaced Repetition & AI Insights</div>
+        <div class="tone-copy">
+          <strong>Your own words, returned to you.</strong> Cyphr uses spaced repetition to surface journal entries, session notes, and personal insights at meaningful intervals. Something you wrote three weeks ago might reappear when it's relevant. Like a practice partner saying "remember when you said this?"<br><br>
+          <strong>30 / 90 / 180 day insight blocks.</strong> Inspired by Nickel Yudat's progress tracking. After 30, 90, and 180 days of documented practice, Cyphr gathers context from your entries and surfaces key takeaways. Challenges you've worked on. How you've felt about your progress. What's shifted. The more you document and capture, the more valuable your movement journal becomes.<br><br>
+          <strong>Chat with your journal.</strong> AI integration lets you have a conversation with your movement journal. Ask questions about your practice patterns, get deeper insights into your values and focus when you dance. The AI isn't trained on visual movement. It reads your words, your reflections, your self-assessments, and forms a picture of your creative process over time.<br><br>
+          <strong>You own your data.</strong> All journal entries and notes can be exported. Your self-knowledge belongs to you, not the platform. Cyphr holds it, but you can take it anywhere.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>Journaling & Reflection</h3>
+    <p>The journal is where the inner work happens. Cyphr uses a 3-step journaling system that wraps around every recording session: check-in before, record, reflect after. But the flow is nonlinear by design. Sometimes you lead with movement. Sometimes you lead with reflection. The tools are always accessible from wherever you are in your process.</p>
+
+    <div class="grid-3 mt-24">
+      <div style="padding: 24px; border: 1px solid var(--cloud); border-radius: 4px;">
+        <h4 class="mb-8">1. Check-In (Before)</h4>
+        <p style="font-size: 14px; color: var(--ash);">Select a challenge focus (bounce, waving, isolations, groove). Quick ratings for energy/mood/stress. Set an intention. Jot down pre-session thoughts. Skippable. If skipped, blank templates are saved for later or discarded based on user preference.</p>
+      </div>
+      <div style="padding: 24px; border: 1px solid var(--cloud); border-radius: 4px;">
+        <h4 class="mb-8">2. Record</h4>
+        <p style="font-size: 14px; color: var(--ash);">The Cyphr. Dance, capture, flow. The journal disappears during recording. Nothing interrupts the movement.</p>
+      </div>
+      <div style="padding: 24px; border: 1px solid var(--cloud); border-radius: 4px;">
+        <h4 class="mb-8">3. Reflect (After)</h4>
+        <p style="font-size: 14px; color: var(--ash);">Rate your focus and distraction. Note how your movement felt. Capture what you want to repeat or dive deeper into. Option to record a video reflection (loom-style) where you rewatch your round and speak your thoughts. Transcribed and summarized for later.</p>
+      </div>
+    </div>
+
+    <div class="grid-2 mt-48">
+      <div>
+        <h4>Journaling Design Principles</h4>
+        <p><strong>Nonlinear workflow.</strong> Sometimes you're writing and get inspired to move. Sometimes you're moving and need to capture a thought. The flow should always have room to access tools from wherever you are. While journaling, a single tap opens the camera. While reviewing footage, a single tap opens the journal. Movement and reflection feed each other.<br><br>
+        <strong>Customizable templates.</strong> Dancers can create their own check-in and reflection questions, remove defaults, add personal prompts, or choose from premade templates. This lets them systematize a way of thinking about their dance that's unique to their practice.<br><br>
+        <strong>Auto-organized by day.</strong> Cyphrs, notes, and journal entries filmed on the same day are grouped into a single day's view. Morning session at 8am, evening session at 8pm. All visible together. Filterable by song, date, time, video length, note length.<br><br>
+        <strong>Video reflections.</strong> Dancers can rewatch a round and record a picture-in-picture reaction video, speaking their thoughts while reviewing footage. Works best with headphones for clear audio capture. Transcribed and summarized automatically. Available immediately after a session or later from the journal.<br><br>
+        <strong>Private by default.</strong> Journal entries start private. Always. If a dancer chooses to publish a reflection, that's an active decision. But the default is always: this is yours alone.</p>
+      </div>
+      <div>
+        <h4>Journal Prompt Voice</h4>
+
+        <div class="voice-example">
+          <div class="voice-label">Pre-session check-in</div>
+          <div class="voice-text">"What's your intention for this round?"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Pre-session check-in</div>
+          <div class="voice-text">"How are you feeling going into it?"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Post-session reflection</div>
+          <div class="voice-text">"How did your movement feel? Did you notice anything different?"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Post-session reflection</div>
+          <div class="voice-text">"What do you want to repeat or dive deeper into?"</div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label dont">Never this</div>
+          <div class="voice-text">"Rate today's session from 1-5 stars! ⭐"</div>
+        </div>
+
+        <div class="callout mt-24">
+          <div class="callout-label">Tone Check</div>
+          <p>Prompts should sound like a thoughtful friend asking over tea. Not a therapist with a clipboard. Not a productivity coach with a whiteboard. Soft curiosity. No agenda. And always skippable.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>Challenges & Movement Goals</h3>
+    <p>Dancers can create custom challenges tied to specific movement goals. Isolations, footwork, groove, waving, popping, bounce. Every Cyphr can be tagged with a challenge, building a trackable record of focused practice over time. Challenges bridge two modes of practice: focused training and open discovery.</p>
+
+    <div class="grid-2 mt-24">
+      <div>
+        <h4>Two Modes of Practice</h4>
+        <p><strong>Training Mode.</strong> Focus on custom goals you've set. Work a specific subject. 30 minutes on footwork, 30 minutes just dancing. The challenge system tracks progress over weeks and months. Inspired by practitioners like Nickel Yudat, who works one subject for three months before moving on.<br><br>
+        <strong>Discovery Mode.</strong> Just dance. Don't think. Let the music move you. No challenge tags, no goals, no tracking. Pure exploration. This mode exists because training can't be all drilling. As Nickel puts it: keep it playful and fun, so the learning remains natural and enjoyable. Both modes are real practice.<br><br>
+        <strong>User-created challenges.</strong> Dancers set their own movement goals and define what they want to work on. Not Cyphr's goals. Not a preset list. Their goals. When they open a challenge, they can create a Cyphr with that focus and track progress over time.<br><br>
+        <strong>Connected to insights.</strong> Tagged challenges feed into the analytics and spaced repetition systems. Over 30, 90, and 180 day blocks, Cyphr can surface patterns: what you've been working on, how you've felt about your progress, and what's shifted in your practice.</p>
+      </div>
+      <div>
+        <h4>Challenge Voice Examples</h4>
+
+        <div class="voice-example">
+          <div class="voice-label">Challenge title</div>
+          <div class="voice-text">"The Unfamiliar Groove"<br><span style="font-style: normal; font-size: 13px; color: var(--ash);">Dance to 5 songs you've never heard before. See what comes out.</span></div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Challenge title</div>
+          <div class="voice-text">"Long Set"<br><span style="font-style: normal; font-size: 13px; color: var(--ash);">Record one uninterrupted session of 20+ minutes. Don't stop. Don't judge. Just move.</span></div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label">Challenge title</div>
+          <div class="voice-text">"The Rewatch"<br><span style="font-style: normal; font-size: 13px; color: var(--ash);">Watch 3 of your old sessions. Journal about what's changed.</span></div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-label dont">Never this</div>
+          <div class="voice-text">"7-Day Streak Challenge! 🔥 Don't break the chain!!"</div>
+        </div>
+
+        <div class="callout mt-24">
+          <div class="callout-label">The Deeper Purpose</div>
+          <p>Cyphr helps dancers build self-awareness. Filming allows you to step out of your body and watch it back. The journal helps you ask better questions about your dance. And better questions get better answers. Over time, self-analysis becomes second nature. The tool is almost like training wheels for developing an internal compass for growth.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>Feature Layering. Keeping It Approachable</h3>
+    <p>These are powerful features. And the temptation is to surface all of them at once. Resist that. The practice ecosystem should unfold naturally, never feel like a complex dashboard, and never overwhelm someone who just wants to dance.</p>
+
+    <div class="grid-3 mt-24">
+      <div style="padding: 24px; border: 1px solid var(--cloud); border-radius: 4px;">
+        <h4 class="mb-8">Layer 1. Record</h4>
+        <p style="font-size: 14px; color: var(--ash);">The core experience. Always front and center. A dancer who only ever records and saves is using Cyphr exactly right.</p>
+      </div>
+      <div style="padding: 24px; border: 1px solid var(--cloud); border-radius: 4px;">
+        <h4 class="mb-8">Layer 2. Reflect</h4>
+        <p style="font-size: 14px; color: var(--ash);">Journal, session notes, resurfaced insights. Available when they're ready to look inward. Entered by choice.</p>
+      </div>
+      <div style="padding: 24px; border: 1px solid var(--cloud); border-radius: 4px;">
+        <h4 class="mb-8">Layer 3. Grow</h4>
+        <p style="font-size: 14px; color: var(--ash);">Analytics, streaks, milestones, challenges, goal tracking. For practitioners who want to see the full picture of their evolution.</p>
+      </div>
+    </div>
+
+    <div class="callout mt-48">
+      <div class="callout-label">The Anti-Overwhelm Rule</div>
+      <p>If a feature can't be understood in 3 seconds of looking at it, it needs to be simplified. Analytics should feel intuitive to someone who's never used a dashboard. The practice ecosystem should never feel overly techy or data-heavy. Every screen passes the <strong>"midnight check."</strong> If a dancer opens this at midnight after an emotional session, does it feel safe, calm, and encouraging? Or does it feel like a wall of numbers? Simple wins. Always.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SOCIAL & PRIVATE ============================== -->
+<div class="section">
+  <div class="section-label">13. Social & Private Modes</div>
+  <h2>Your practice, your terms.<br>Share it or keep it.</h2>
+  <p class="lead">Dance culture is built on community. Cyphers, sessions, battles, crews. Sharing the art form is part of the art form. But practice can also be deeply private. Some sessions are just for you. Cyphr honors both by making social features fully toggleable. You choose how open or closed your experience is.</p>
+
+  <div class="divider"></div>
+
+  <div class="grid-2 mt-48">
+    <div class="identity-card">
+      <h3>Private Mode</h3>
+      <p><strong>The default.</strong> Out of the box, Cyphr is a personal tool. No feed, no followers, no visibility. Your recordings, your journal, your insights. Just you and your practice.<br><br>
+      <strong>Zero input from others.</strong> No comments, no likes, no reactions. When you want to go inward, the app goes with you. Nothing from the outside gets in unless you open the door.<br><br>
+      <strong>Complete control.</strong> Private mode isn't a lesser experience. It's a full experience. Recording, journaling, analytics, challenges, music discovery. Everything works without ever connecting to another person.<br><br>
+      <strong>For the 2am sessions.</strong> The ones where you're working through something. The ones where you're just exploring. The ones that are nobody's business but yours.</p>
+    </div>
+    <div class="identity-card">
+      <h3>Social Mode</h3>
+      <p><strong>Opt-in, always.</strong> When you're ready to share, Cyphr makes it easy. Toggle social features on and connect with other dancers, share your practice, and participate in the community.<br><br>
+      <strong>Publish your practice notes.</strong> Think Substack for movement artists. Dancers can publish journal entries, session reflections, and practice notes. Express yourself beyond the video. Share what you're learning, what you're feeling, what you're working through.<br><br>
+      <strong>Build real connections.</strong> Follow other dancers. See their published reflections. Share the inner work, not just the highlight reel. The social layer is built for depth, not performance.<br><br>
+      <strong>For the culture.</strong> Dance has always been communal. Cyphers only work because people show up. Cyphr's social features honor that tradition. Share your growth. Learn from others. Build together.</p>
+    </div>
+  </div>
+
+  <div class="callout mt-48">
+    <div class="callout-label">The Toggle Principle</div>
+    <p>The social/private toggle is a core philosophical commitment. It's not a settings toggle buried three screens deep. It's a visible, respected choice that Cyphr surfaces clearly. The app never pressures you toward social. It never makes private mode feel lonely or incomplete. And it never makes social mode feel mandatory for the "full experience." Both modes are the full experience. You just choose which energy you're in.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>Publishing & Expression</h3>
+  <p>When social mode is active, Cyphr becomes a platform for creative expression beyond video. Dancers can write, reflect, and share in ways that go deeper than a clip.</p>
+
+  <div class="grid-2 mt-24">
+    <div>
+      <h4>What Dancers Can Publish</h4>
+      <p><strong>Practice journals.</strong> Long-form reflections on sessions, breakthroughs, creative blocks, and discoveries. The inner world of a dancer's practice, shared with people who understand it.<br><br>
+      <strong>Session notes.</strong> Shorter observations attached to specific recordings. What you were working on, what you noticed, what you want to remember.<br><br>
+      <strong>Creative essays.</strong> Thoughts on movement, artistry, the culture, the craft. A place to express ideas that don't fit in a 60-second clip.<br><br>
+      <strong>Growth over time.</strong> Published practice logs become a public record of a dancer's evolution. Not a highlight reel. A real, honest journey.</p>
+    </div>
+    <div>
+      <h4>Publishing Design Principles</h4>
+      <p><strong>Beautiful by default.</strong> Published content should look clean and considered without requiring design skills. Good typography, generous spacing, the same aesthetic quality as the rest of Cyphr.<br><br>
+      <strong>The dancer's voice, not Cyphr's.</strong> Published content should feel like it's coming from the person, not the platform. Minimal branding on published pieces. The artist's name and words are what matter.<br><br>
+      <strong>Granular privacy.</strong> Every piece of content has its own visibility setting. A dancer can publish one journal entry and keep the next ten private. Total control, every time.<br><br>
+      <strong>No engagement metrics pressure.</strong> Published content doesn't show view counts or like counts by default. The act of sharing is the point. Not the performance of being seen.</p>
+    </div>
+  </div>
+
+  <div class="grid-2 mt-48">
+    <div class="tone-card do">
+      <div class="tone-tag do">Social Voice</div>
+      <div class="tone-copy">
+        <strong>When encouraging sharing:</strong> "Share this reflection with the community?" Simple yes/no. No persuasion.<br><br>
+        <strong>When someone publishes:</strong> "Published." One word. The content speaks for itself.<br><br>
+        <strong>Discovery:</strong> "Dancers you follow are reflecting on their practice." Warm, specific, never urgent.<br><br>
+        <strong>The energy:</strong> Like a studio where the door is open. People drift in, watch, nod, share a thought. Nobody's performing. Everybody's practicing.
+      </div>
+    </div>
+    <div class="tone-card dont">
+      <div class="tone-tag dont">Never Do This</div>
+      <div class="tone-copy">
+        <strong>Pressure to be social:</strong> "Your friends are sharing! Don't miss out!" Never. Not once.<br><br>
+        <strong>Engagement bait:</strong> "Your last post got 47 views! Post again to keep the momentum!" Absolutely not.<br><br>
+        <strong>Making private feel lonely:</strong> "Connect with other dancers to get the full Cyphr experience!" Private IS the full experience.<br><br>
+        <strong>Feed-driven design:</strong> No infinite scroll. No algorithmic ranking. No "trending" section. If social features start feeling like social media, something went wrong.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== MUSIC ECOSYSTEM ============================== -->
+<div class="section-dark">
+  <div class="inner">
+    <div class="section-label">14. Music Discovery & Creative Economy</div>
+    <h2>Where dancers find music.<br>Where producers find dancers.</h2>
+    <p class="lead">Cyphr isn't just a recording tool with a music library. It's a creative marketplace that connects movement artists with music producers. Dancers discover and purchase music through the platform. Producers upload and distribute directly to the people who'll actually move to their beats. This is a creative support economy, not a streaming service.</p>
+
+    <div class="divider"></div>
+
+    <h3>The Ecosystem Vision</h3>
+    <div class="grid-2 mt-24">
+      <div>
+        <h4>For Dancers</h4>
+        <p><strong>Music discovery built for movement.</strong> Not algorithmic playlists optimized for passive listening. Music surfaced and organized around how dancers actually use it. Tempo, energy, style, vibe. Find the track that unlocks your next session.<br><br>
+        <strong>Purchase unlocks practice.</strong> When a dancer buys a track through Cyphr, it unlocks the full practice toolkit for that song. Headphone recording, auto-sync, unlimited rounds, loop sections. The purchase is the key that turns a song into a training tool.<br><br>
+        <strong>Earn through curation.</strong> Dancers can curate playlists, post dance videos, and recommend music. If someone purchases a song through their curation, the dancer earns commission. Good taste becomes income. This turns every dancer into a music curator with skin in the game.<br><br>
+        <strong>Playlists built for sessions.</strong> Curate your own sets, discover community playlists, build libraries organized the way dancers think. By energy, by style, by mood, not just by genre.</p>
+      </div>
+      <div>
+        <h4>For Musicians & Producers</h4>
+        <p><strong>Fans who actually create with your music.</strong> Musicians on Cyphr aren't reaching passive listeners. They're reaching artists with creator's intent. People who spend deep time with a track, who play it hundreds of times in practice, who build a real relationship with the music. These aren't streams. These are genuine fans.<br><br>
+        <strong>Upload and distribute.</strong> Musicians can upload their music directly to Cyphr's marketplace. Simple, clean process. Their work gets in front of the right audience without label politics or algorithm games.<br><br>
+        <strong>See your music in motion.</strong> When a dancer records a session to a musician's track, there's a potential connection. The musician can see their music being used as it was meant to be used. This isn't metrics. It's meaning.<br><br>
+        <strong>Fair creative economy.</strong> Transparent pricing, direct artist support. No exploitative streaming fractions. Musicians set their value. Dancers vote with their purchases. And when dancers curate and recommend your track, that recommendation carries weight because it comes from someone who actually moves to it.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>Music Interface Design Principles</h3>
+    <p style="color: var(--mist); max-width: 640px;">The music experience borrows from Spotify's polish and Bandcamp's artist-first ethos, but everything is filtered through the specific needs of movement artists.</p>
+
+    <div class="grid-2 mt-24">
+      <div class="tone-card do" style="border-color: rgba(255,255,255,0.08);">
+        <div class="tone-tag do">Design For</div>
+        <div class="tone-copy" style="color: var(--cloud);">
+          <strong>Movement-first browsing.</strong> Let dancers browse by feel. Tempo ranges, energy levels, vibe tags. Not just traditional genre categories. A freestyler looking for "something slow and heavy" should find it in seconds.<br><br>
+          <strong>Artist visibility.</strong> Give musicians real presence. Name, bio, catalog. They're artists too, and Cyphr treats them that way. Not buried behind an algorithm.<br><br>
+          <strong>Purchase as unlock.</strong> Buying a track should feel like gaining a new practice tool, not just adding to a library. The moment of purchase opens up the full suite for that song: headphone recording, auto-sync, unlimited rounds, loop sections. Make this feel valuable and exciting, not transactional.<br><br>
+          <strong>Curation as creation.</strong> Building playlists and recommending songs is a creative act. The curation interface should feel expressive and personal. When dancers earn commission through their recommendations, it should feel like recognition of their taste, not a referral scheme.
+        </div>
+      </div>
+      <div class="tone-card dont" style="border-color: rgba(255,255,255,0.08);">
+        <div class="tone-tag dont">Avoid</div>
+        <div class="tone-copy" style="color: var(--cloud);">
+          <strong>Aggressive upselling.</strong> Never interrupt a recording flow to promote music. The purchase model is clear: buying a track unlocks practice tools for that song. But this should never feel like a paywall blocking creativity. The value exchange should feel fair and obvious.<br><br>
+          <strong>Algorithm-driven manipulation.</strong> No "trending tracks" pressure. No "other dancers are using this" social proof tactics. Discovery should feel like digging through crates at a record shop. Personal, exploratory, unhurried.<br><br>
+          <strong>Streaming-service aesthetics.</strong> Cyphr's music interface shouldn't look like Spotify with a dance skin. It should feel like a curated collection in a studio, not a content feed. Less scroll, more intention.<br><br>
+          <strong>Artist exploitation.</strong> No race-to-the-bottom pricing. No "free tier with ads" model for music. If a musician's work has value (it does), the platform reflects that.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>Music Copy & Voice</h3>
+    <div class="grid-2 mt-24">
+      <div>
+        <div class="voice-example" style="border-left-color: var(--smoke);">
+          <div class="voice-label">Discovery section</div>
+          <div class="voice-text" style="color: var(--cloud);">"Find your next session soundtrack."</div>
+        </div>
+        <div class="voice-example" style="border-left-color: var(--smoke);">
+          <div class="voice-label">Producer profile</div>
+          <div class="voice-text" style="color: var(--cloud);">"12 tracks · Purchased by 340 dancers"</div>
+        </div>
+        <div class="voice-example" style="border-left-color: var(--smoke);">
+          <div class="voice-label">Purchase confirmation</div>
+          <div class="voice-text" style="color: var(--cloud);">"Track unlocked. Supporting [Artist Name]."</div>
+        </div>
+      </div>
+      <div>
+        <div class="voice-example" style="border-left-color: var(--smoke);">
+          <div class="voice-label dont">Not this</div>
+          <div class="voice-text" style="color: var(--cloud);">"🔥 HOT TRACKS dropping now! Don't miss these bangers!"</div>
+        </div>
+        <div class="voice-example" style="border-left-color: var(--smoke);">
+          <div class="voice-label dont">Not this</div>
+          <div class="voice-text" style="color: var(--cloud);">"247 dancers already bought this! Get it before it's gone!"</div>
+        </div>
+        <div class="voice-example" style="border-left-color: var(--smoke);">
+          <div class="voice-label dont">Not this</div>
+          <div class="voice-text" style="color: var(--cloud);">"Unlock premium music with Cyphr Pro! 🎵✨"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout mt-48" style="background: rgba(90, 122, 106, 0.08); border-color: rgba(90, 122, 106, 0.15);">
+      <div class="callout-label">The Creative Support Economy</div>
+      <p style="color: var(--cloud);">The dancer-musician relationship is sacred in this culture. Musicians make the music. Dancers bring it to life through movement. Cyphr's marketplace isn't a transaction layer. It's a bridge between two art forms. When a dancer buys a track, they're not just purchasing audio. They're unlocking a practice tool and supporting an artist. When a musician uploads to Cyphr, they're putting their work in the hands of artists who actually create with it. People with creator's intent who spend deep time with a track. Not passive listeners. Genuine fans. And when dancers curate playlists and recommend songs, they earn commission for their taste. Good curation becomes income. The economy flows in both directions: musicians create for movers, dancers amplify for musicians, and everyone gets supported for the value they bring.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== FUTURE VISION ============================== -->
+<div class="section">
+  <div class="section-label">15. Future Vision & Roadmap Principles</div>
+  <h2>Where Cyphr grows</h2>
+  <p class="lead">Cyphr's feature set will expand. Choreography tools, deeper music integrations, community features. As the platform grows, these principles keep it grounded.</p>
+
+  <div class="grid-2 mt-48">
+    <div class="identity-card">
+      <h3>Choreography Features (Coming)</h3>
+      <p>Choreographers need different tools than freestylers. Section markers, formation notes, count tracking, multi-take comparison. As these features arrive, they should maintain the same design philosophy: professional, minimal, and in service of the creative process.<br><br>
+      <strong>Design principle:</strong> Choreography tools should feel like a director's notebook. Organized, flexible, and personal. Not like project management software. Clean enough that a choreographer can glance at their phone between runs and immediately know where they are in the piece.</p>
+    </div>
+    <div class="identity-card">
+      <h3>Growth Guardrails</h3>
+      <p><strong>New features earn their place.</strong> Every addition must pass the core test: does this serve the practice? If a feature is cool but doesn't deepen someone's relationship with their art, it waits.<br><br>
+      <strong>Complexity hides behind simplicity.</strong> As the platform grows more capable, the interface should not grow more complicated. Power users discover depth; new users see clarity.<br><br>
+      <strong>Culture first, technology second.</strong> Cyphr's identity is rooted in dance culture. Juste Debout, Summer Dance Forever, the cypher, the session. Technology serves that culture. Not the other way around.<br><br>
+      <strong>Both sides of the art.</strong> Every platform decision considers both dancers and producers. The ecosystem is only as healthy as its least-supported creator.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== BRAND SUMMARY ============================== -->
+<div class="section-dark" style="padding-bottom: 60px;">
+  <div class="inner">
+    <div class="section-label">16. Quick Reference</div>
+    <h2>Brand at a glance</h2>
+
+    <div class="grid-2 mt-48">
+      <div>
+        <h4>Cyphr Is</h4>
+        <table class="brand-table mt-0">
+          <tbody>
+            <tr><td style="color: var(--paper);">A professional creative ecosystem for movement artists and producers</td></tr>
+            <tr><td style="color: var(--paper);">Recording, practice, music discovery, and creative economy in one tool</td></tr>
+            <tr><td style="color: var(--paper);">Deep when you need depth. Fun when you're just vibing</td></tr>
+            <tr><td style="color: var(--paper);">Culturally native. Built from inside the dance community</td></tr>
+            <tr><td style="color: var(--paper);">Private by default. Social by choice</td></tr>
+            <tr><td style="color: var(--paper);">A bridge between the people who make the music and the people who move to it</td></tr>
+            <tr><td style="color: var(--paper);">Easy, simple, and genuinely enjoyable to use</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h4>Cyphr Is Not</h4>
+        <table class="brand-table mt-0">
+          <tbody>
+            <tr><td>A social media platform you can't turn off</td></tr>
+            <tr><td>A gamified app that guilts you into opening it</td></tr>
+            <tr><td>So serious it forgets dance is fun</td></tr>
+            <tr><td>An annoying coach or cheerleader</td></tr>
+            <tr><td>A generic streaming service with a dance skin</td></tr>
+            <tr><td>A tech company building for dancers from the outside</td></tr>
+            <tr><td>Something that needs to prove itself with flash</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p style="font-size: 14px; color: var(--ash); max-width: 100%; text-align: center; margin: 40px auto 0;">
+      <span class="jp-accent">型 · 練習 · 流れ</span><br>
+      <span style="font-size: 11px; letter-spacing: 2px; margin-top: 8px; display: inline-block;">FORM · PRACTICE · FLOW</span>
+    </p>
+  </div>
+</div>
+
+<div class="footer">
+  CYPHR BRAND GUIDELINES · V1.0 · FEBRUARY 2026 · INTERNAL DOCUMENT
+</div>
+
+</body>
+</html>

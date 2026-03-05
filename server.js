@@ -7,6 +7,7 @@ const https = require('https');
 const TodoistIntegration = require('./todoist-integration');
 const { startAPIInterception, stopAPIInterception } = require('./api-interceptor');
 const { initializeFailoverManager, getFailoverManager } = require('./api-failover-manager');
+const { addMobileEndpoints } = require('./server-mobile');
 
 const app = express();
 const PORT = 8899;
@@ -789,6 +790,9 @@ app.use((req, res) => {
         path: req.path 
     });
 });
+
+// Add mobile endpoints
+addMobileEndpoints(app);
 
 // Start server
 app.listen(PORT, () => {

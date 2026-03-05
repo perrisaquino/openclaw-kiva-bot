@@ -1,0 +1,86 @@
+{
+  "priorities": [],
+  "tasks": {
+    "business": {
+      "backlog": [],
+      "progress": [],
+      "done": []
+    },
+    "personal": {
+      "backlog": [],
+      "progress": [],
+      "done": []
+    }
+  },
+  "revenue": {
+    "goal": 2000,
+    "history": [
+      {
+        "month": "Sep 2025",
+        "value": 0
+      },
+      {
+        "month": "Oct 2025",
+        "value": 0
+      },
+      {
+        "month": "Nov 2025",
+        "value": 0
+      },
+      {
+        "month": "Dec 2025",
+        "value": 0
+      },
+      {
+        "month": "Jan 2026",
+        "value": 0
+      },
+      {
+        "month": "Feb 2026",
+        "value": 0
+      }
+    ],
+    "clients": []
+  },
+  "command": {
+    "agents": [],
+    "decisions": []
+  },
+  "intel": {
+    "items": []
+  },
+  "advisoryCouncil": {
+    "experts": [],
+    "recommendations": [],
+    "dataSources": [],
+    "settings": {}
+  },
+  "security": {
+    "incidents": [],
+    "approvals": [],
+    "metrics": {},
+    "policies": {}
+  },
+  "usage": {
+    "providers": {},
+    "calls": [],
+    "daily": {},
+    "weekly": {},
+    "monthly": {}
+  },
+  "updates": {
+    "currentVersion": "v2.1.0",
+    "lastCheck": null,
+    "updates": [],
+    "settings": {
+      "enabled": true,
+      "checkTime": "21:00",
+      "frequency": "daily",
+      "telegramEnabled": false,
+      "telegramBotToken": "",
+      "telegramChannelId": ""
+    }
+  },
+  "notes": "",
+  "lastUpdated": "2026-02-25T18:58:18.670Z"
+}

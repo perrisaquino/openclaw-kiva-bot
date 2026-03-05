@@ -6,6 +6,9 @@
     <title>Mission Control | CyphrCam Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Integrated Markdown Editor -->
+    <!-- Simple editor styles included inline -->
+    
     <style>
         /* CSS Variables for theming */
         :root {
@@ -630,6 +633,76 @@
         .task-card:hover {
             background: rgba(255, 255, 255, 0.08);
             transform: translateY(-1px);
+        }
+
+        /* Content Pipeline Specific Styles */
+        .task-card[draggable="true"] {
+            cursor: move;
+            transition: all 0.2s ease;
+        }
+
+        .task-card[draggable="true"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .tasks-list[data-column] {
+            min-height: 200px;
+            border: 2px dashed transparent;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .tasks-list[data-column]:hover {
+            border-color: rgba(14, 165, 233, 0.3);
+            background: rgba(14, 165, 233, 0.05);
+        }
+
+        /* Content card word count styling */
+        .task-card .word-count {
+            font-size: 0.75rem;
+            color: var(--accent);
+            background: rgba(14, 165, 233, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        /* Content status indicators */
+        .content-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .content-status.ideas {
+            background: rgba(139, 92, 246, 0.2);
+            color: #8b5cf6;
+        }
+
+        .content-status.draft {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .content-status.review {
+            background: rgba(6, 182, 212, 0.2);
+            color: #06b6d4;
+        }
+
+        .content-status.ready {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .content-status.published {
+            background: rgba(14, 165, 233, 0.2);
+            color: #0ea5e9;
         }
 
         .task-title {
@@ -2406,72 +2479,477 @@
             box-shadow: 0 0 0 3px var(--accent-glow);
         }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .kanban-board {
-                grid-template-columns: 1fr;
-            }
-            
-            .security-config-grid {
-                grid-template-columns: 1fr;
+        /* Enhanced Responsive Design */
+        
+        /* Improved spacing variables for better hierarchy */
+        :root {
+            --header-height: 80px;
+            --sidebar-width-mobile: 320px;
+            --touch-target-min: 44px;
+            --content-max-width: 1400px;
+        }
+
+        /* Content Pipeline - Responsive Kanban */
+        .content-kanban-container {
+            overflow-x: auto;
+            padding-bottom: var(--spacing-sm);
+        }
+        
+        .content-kanban-board {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            min-height: 600px;
+            width: max-content;
+            min-width: 100%;
+        }
+
+        /* Mobile-first approach for better touch interactions */
+        .touch-friendly {
+            min-height: var(--touch-target-min);
+            padding: var(--spacing-md);
+        }
+
+        .hamburger-menu {
+            min-width: var(--touch-target-min);
+            min-height: var(--touch-target-min);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-item {
+            min-height: var(--touch-target-min);
+            padding: var(--spacing-md) var(--spacing-lg);
+        }
+
+        /* Responsive Typography Scale */
+        @media (min-width: 320px) {
+            html {
+                font-size: 14px;
             }
         }
 
-        @media (max-width: 768px) {
-            .header-content {
-                padding: 0 var(--spacing-md);
+        @media (min-width: 768px) {
+            html {
+                font-size: 16px;
             }
-            
+        }
+
+        @media (min-width: 1024px) {
+            html {
+                font-size: 16px;
+            }
+        }
+
+        /* Enhanced Breakpoint System */
+        
+        /* Small devices (landscape phones, 576px and up) */
+        @media (max-width: 575px) {
             .main-content {
-                padding: var(--spacing-md);
+                padding: var(--spacing-sm);
+                padding-bottom: 100px; /* Account for mobile navigation */
             }
             
-            .metrics-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .search-input {
-                width: 120px;
-            }
-            
-            .sidebar-nav {
-                width: 280px;
-                left: -280px;
-            }
-            
-            .current-tab-display {
-                font-size: 1rem;
-            }
-            
-            .experts-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .agents-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
             .header-content {
                 padding: 0 var(--spacing-sm);
             }
             
-            .main-content {
-                padding: var(--spacing-sm);
-            }
-            
             .sidebar-nav {
-                width: 100%;
-                left: -100%;
+                width: 100vw;
+                left: -100vw;
             }
             
             .search-bar {
                 display: none;
+            }
+            
+            .header-right {
+                gap: var(--spacing-sm);
+            }
+            
+            /* Stack all grids single column */
+            .metrics-grid,
+            .experts-grid,
+            .agents-grid,
+            .security-metrics-grid,
+            .usage-metrics-grid,
+            .update-metrics-grid,
+            .provider-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            /* Single column Kanban for mobile */
+            .kanban-board {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            /* Content Pipeline - Mobile stack */
+            .content-kanban-board {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+                width: 100%;
+            }
+            
+            /* Improve card spacing on mobile */
+            .card {
+                margin-bottom: var(--spacing-lg);
+            }
+            
+            .task-card {
+                margin-bottom: var(--spacing-md);
+            }
+            
+            /* Better mobile modal */
+            .task-modal-content,
+            .agent-detail-panel {
+                width: 95vw;
+                max-width: 95vw;
+                margin: var(--spacing-sm);
+            }
+            
+            .agent-detail-panel {
+                width: 100vw;
+                right: -100vw;
+            }
+            
+            /* Mobile-friendly buttons */
+            .add-priority-btn,
+            .client-action-btn {
+                min-height: var(--touch-target-min);
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: 0.875rem;
+            }
+            
+            /* Responsive tables/lists */
+            .client-item {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+                text-align: left;
+            }
+            
+            .client-actions {
+                justify-self: flex-start;
+                margin-top: var(--spacing-xs);
+            }
+        }
+
+        /* Medium devices (tablets, 576px to 991px) */
+        @media (min-width: 576px) and (max-width: 991px) {
+            .main-content {
+                padding: var(--spacing-lg);
+            }
+            
+            .header-content {
+                padding: 0 var(--spacing-lg);
+            }
+            
+            .sidebar-nav {
+                width: var(--sidebar-width-mobile);
+                left: calc(-1 * var(--sidebar-width-mobile));
+            }
+            
+            .search-input {
+                width: 150px;
+            }
+            
+            /* Two column layouts for tablets */
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .experts-grid,
+            .agents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .security-metrics-grid,
+            .usage-metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* 3-column Kanban for tablets */
+            .kanban-board {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            /* Content Pipeline - Horizontal scroll for tablets */
+            .content-kanban-container {
+                overflow-x: auto;
+            }
+            
+            .content-kanban-board {
+                grid-template-columns: repeat(5, minmax(250px, 1fr));
+                width: max-content;
+                min-width: 100%;
+            }
+            
+            .task-modal-content {
+                width: 90vw;
+                max-width: 600px;
+            }
+            
+            .agent-detail-panel {
+                width: 400px;
+                right: -400px;
+            }
+        }
+
+        /* Large devices (desktops, 992px to 1199px) */
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .main-content {
+                max-width: var(--content-max-width);
+                margin: 0 auto;
+                padding: var(--spacing-xl);
+            }
+            
+            .header-content {
+                max-width: var(--content-max-width);
+                margin: 0 auto;
+                padding: 0 var(--spacing-xl);
+            }
+            
+            .metrics-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .experts-grid,
+            .agents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .security-config-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            /* Content Pipeline - 4 columns visible, scroll for 5th */
+            .content-kanban-board {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            /* Show 5th column with overflow hint */
+            .content-kanban-container::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: linear-gradient(to right, transparent, var(--accent));
+                pointer-events: none;
+            }
+        }
+
+        /* Extra large devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) {
+            .main-content {
+                max-width: var(--content-max-width);
+                margin: 0 auto;
+                padding: var(--spacing-xl);
+            }
+            
+            .header-content {
+                max-width: var(--content-max-width);
+                margin: 0 auto;
+                padding: 0 var(--spacing-xl);
+            }
+            
+            .metrics-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+            
+            .experts-grid,
+            .agents-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            /* Full 5-column Kanban for large screens */
+            .content-kanban-board {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            
+            .security-config-grid,
+            .update-config-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Ultra wide screens (1400px and up) */
+        @media (min-width: 1400px) {
+            .metrics-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .experts-grid,
+            .agents-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .security-metrics-grid,
+            .usage-metrics-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Enhanced Touch Interactions */
+        @media (hover: none) and (pointer: coarse) {
+            .task-card:hover,
+            .card:hover {
+                transform: none;
+            }
+            
+            .task-card:active,
+            .card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+            
+            .add-task-btn,
+            .add-priority-btn,
+            .client-action-btn {
+                min-height: 48px;
+            }
+        }
+
+        /* Improved Spacing System */
+        
+        /* More generous spacing on larger screens */
+        @media (min-width: 768px) {
+            .card {
+                padding: var(--spacing-lg);
+            }
+            
+            .timeline-item {
+                margin-bottom: var(--spacing-xl);
+            }
+            
+            .activity-item {
+                padding: var(--spacing-lg) 0;
+            }
+        }
+
+        /* Tighter spacing on mobile for more content visibility */
+        @media (max-width: 767px) {
+            :root {
+                --spacing-xs: 0.25rem;
+                --spacing-sm: 0.5rem;
+                --spacing-md: 1rem;
+                --spacing-lg: 1.5rem;
+                --spacing-xl: 2rem;
+            }
+            
+            .welcome-bar {
+                padding: var(--spacing-lg);
+                margin-bottom: var(--spacing-lg);
+            }
+            
+            .metric-card {
+                padding: var(--spacing-md);
+            }
+            
+            .timeline-item {
+                margin-bottom: var(--spacing-lg);
+                padding: var(--spacing-md);
+            }
+        }
+
+        /* Mobile Bottom Navigation (Alternative to sidebar) */
+        @media (max-width: 767px) {
+            .mobile-bottom-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(5, 5, 8, 0.95);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid var(--card-border);
+                padding: var(--spacing-sm) 0;
+                z-index: 1000;
+                display: flex;
+                justify-content: space-around;
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+            
+            .mobile-nav-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+                padding: var(--spacing-xs);
+                color: var(--text-muted);
+                text-decoration: none;
+                font-size: 0.75rem;
+                min-width: var(--touch-target-min);
+                text-align: center;
+                transition: color 0.2s ease;
+            }
+            
+            .mobile-nav-item.active {
+                color: var(--accent);
+            }
+            
+            .mobile-nav-icon {
+                font-size: 1.25rem;
+                margin-bottom: 2px;
+            }
+            
+            body {
+                padding-bottom: 80px; /* Space for bottom nav */
+            }
+        }
+
+        /* Accessibility Improvements */
+        
+        /* Focus styles for keyboard navigation */
+        .nav-item:focus,
+        .add-priority-btn:focus,
+        .client-action-btn:focus,
+        .task-card:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --card-border: rgba(255, 255, 255, 0.3);
+                --text-secondary: #e5e5e5;
+            }
+        }
+
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .fade-in-up {
+                animation: none;
+            }
+        }
+
+        /* Dark mode improvements */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-bg: #0a0a0f;
+                --card-bg: rgba(255, 255, 255, 0.05);
             }
         }
 
@@ -2491,6 +2969,190 @@
 
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Horizontal scrollbar for mobile Kanban */
+        .content-kanban-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        /* Visibility Classes */
+        .mobile-only {
+            display: none;
+        }
+
+        .desktop-only {
+            display: block;
+        }
+
+        @media (max-width: 767px) {
+            .mobile-only {
+                display: block;
+            }
+            
+            .desktop-only {
+                display: none;
+            }
+            
+            .mobile-scroll-hint {
+                display: block !important;
+            }
+        }
+
+        /* Mobile Bottom Navigation Styles */
+        .mobile-bottom-nav {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .mobile-bottom-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(5, 5, 8, 0.98);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid var(--card-border);
+                padding: var(--spacing-sm) var(--spacing-xs);
+                z-index: 1000;
+                display: flex;
+                justify-content: space-around;
+                padding-bottom: calc(var(--spacing-sm) + env(safe-area-inset-bottom));
+                box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+            }
+            
+            .mobile-nav-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2px;
+                padding: var(--spacing-xs) 4px;
+                color: var(--text-muted);
+                text-decoration: none;
+                font-size: 0.65rem;
+                font-weight: 500;
+                min-width: var(--touch-target-min);
+                text-align: center;
+                transition: all 0.2s ease;
+                border-radius: 8px;
+                cursor: pointer;
+                user-select: none;
+            }
+            
+            .mobile-nav-item:active {
+                transform: scale(0.95);
+                background: rgba(255, 255, 255, 0.1);
+            }
+            
+            .mobile-nav-item.active {
+                color: var(--accent);
+                background: rgba(14, 165, 233, 0.1);
+            }
+            
+            .mobile-nav-icon {
+                font-size: 1.1rem;
+                margin-bottom: 1px;
+            }
+            
+            .main-content {
+                padding-bottom: 90px; /* Space for bottom nav */
+            }
+        }
+
+        /* Enhanced Mobile Interactions */
+        @media (max-width: 767px) {
+            /* Larger touch targets for mobile */
+            .task-card {
+                min-height: 60px;
+                padding: var(--spacing-md);
+                margin-bottom: var(--spacing-md);
+                cursor: pointer;
+                user-select: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            .task-card:active {
+                transform: scale(0.98);
+                background: rgba(255, 255, 255, 0.08);
+            }
+            
+            /* Better button sizing */
+            .add-task-btn {
+                min-height: 48px;
+                font-size: 0.9rem;
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+            
+            /* Improved modal for mobile */
+            .task-modal-content {
+                margin: var(--spacing-sm);
+                width: calc(100vw - 2rem);
+                max-width: calc(100vw - 2rem);
+                max-height: calc(100vh - 4rem);
+            }
+            
+            /* Mobile-friendly forms */
+            .intel-input,
+            .intel-select,
+            .intel-textarea {
+                min-height: var(--touch-target-min);
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            
+            /* Swipe indicator for horizontal content */
+            .content-kanban-container::before {
+                content: '';
+                position: sticky;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(
+                    to right,
+                    var(--accent) 0%,
+                    transparent 10%,
+                    transparent 90%,
+                    var(--accent) 100%
+                );
+                z-index: 1;
+                margin-bottom: var(--spacing-xs);
+            }
+        }
+
+        /* Improved Focus States for Accessibility */
+        @media (min-width: 768px) {
+            .task-card:focus-visible,
+            .nav-item:focus-visible,
+            .mobile-nav-item:focus-visible {
+                outline: 2px solid var(--accent);
+                outline-offset: 2px;
+                box-shadow: 0 0 0 4px var(--accent-glow);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .header,
+            .sidebar-nav,
+            .mobile-bottom-nav,
+            .add-task-btn,
+            .add-priority-btn,
+            .client-action-btn {
+                display: none !important;
+            }
+            
+            .main-content {
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: none !important;
+            }
+            
+            .card {
+                break-inside: avoid;
+                border: 1px solid #ccc !important;
+                background: white !important;
+                color: black !important;
+            }
         }
     </style>
 </head>
@@ -2548,6 +3210,10 @@
                 <button class="nav-item" data-tab="timeline">
                     <span class="nav-icon">📅</span>
                     <span class="nav-label">Timeline</span>
+                </button>
+                <button class="nav-item" data-tab="content">
+                    <span class="nav-icon">📝</span>
+                    <span class="nav-label">Content Pipeline</span>
                 </button>
             </div>
             
@@ -3646,24 +4312,262 @@
             </div>
         </div>
 
+        <!-- Content Pipeline Tab -->
+        <div class="tab-content" id="content">
+            <!-- Content Pipeline Header -->
+            <div class="card fade-in-up" style="animation-delay: 0.1s; margin-bottom: var(--spacing-lg);">
+                <div style="padding: var(--spacing-lg); border-bottom: 1px solid var(--card-border);">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3>📝 Substack Content Pipeline</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 4px;">
+                                Long-form articles for personal brand positioning + CyphrCam launch strategy
+                            </p>
+                        </div>
+                        <div style="display: flex; gap: var(--spacing-sm);">
+                            <button class="add-priority-btn" onclick="createNewArticle()">➕ New Article</button>
+                            <button class="client-action-btn" onclick="openObsidian()">📂 Open Obsidian</button>
+                            <button class="add-priority-btn" onclick="testMarkdownEditor()" style="background: #f59e0b;">🧪 Test Editor</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Status Overview -->
+            <div class="metrics-grid" style="margin-bottom: var(--spacing-lg);">
+                <div class="card metric-card fade-in-up" style="animation-delay: 0.1s">
+                    <div class="metric-header">
+                        <div class="metric-icon">💡</div>
+                        <div class="metric-trend up">+2</div>
+                    </div>
+                    <div class="metric-value" id="ideasCount">5</div>
+                    <div class="metric-label">Ideas Ready</div>
+                </div>
+
+                <div class="card metric-card warning fade-in-up" style="animation-delay: 0.2s">
+                    <div class="metric-header">
+                        <div class="metric-icon">✍️</div>
+                        <div class="metric-trend down">-1</div>
+                    </div>
+                    <div class="metric-value" id="draftsCount">3</div>
+                    <div class="metric-label">In Draft</div>
+                </div>
+
+                <div class="card metric-card success fade-in-up" style="animation-delay: 0.3s">
+                    <div class="metric-header">
+                        <div class="metric-icon">✅</div>
+                        <div class="metric-trend up">+1</div>
+                    </div>
+                    <div class="metric-value" id="readyCount">1</div>
+                    <div class="metric-label">Ready to Publish</div>
+                </div>
+
+                <div class="card metric-card fade-in-up" style="animation-delay: 0.4s">
+                    <div class="metric-header">
+                        <div class="metric-icon">🚀</div>
+                        <div class="metric-trend up">+0</div>
+                    </div>
+                    <div class="metric-value" id="publishedCount">0</div>
+                    <div class="metric-label">Published</div>
+                </div>
+            </div>
+
+            <!-- Interactive Kanban Board -->
+            <div class="card fade-in-up" style="animation-delay: 0.5s;">
+                <div style="padding: var(--spacing-lg);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg);">
+                        <h3>📋 Content Kanban Board</h3>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary);">
+                            <span style="display: none;" class="desktop-only">Drag cards between columns</span>
+                            <span class="mobile-only">Tap cards to edit • Scroll horizontally</span>
+                        </div>
+                    </div>
+                    
+                    <div class="content-kanban-container">
+                        <div class="content-kanban-board">
+                            <!-- Ideas Column -->
+                            <div class="kanban-column" id="ideasColumn">
+                                <div class="column-header">
+                                    <div class="column-title">💡 Ideas</div>
+                                    <div class="task-count" id="ideasTaskCount">5</div>
+                                </div>
+                                <div class="tasks-list" id="ideasTasksList" ondrop="drop(event)" ondragover="allowDrop(event)" data-column="ideas">
+                                    <!-- Ideas will be populated by JavaScript -->
+                                </div>
+                                <button class="add-task-btn touch-friendly" onclick="addContentItem('ideas')">+ Add Idea</button>
+                            </div>
+
+                            <!-- Draft Column -->
+                            <div class="kanban-column" id="draftColumn">
+                                <div class="column-header">
+                                    <div class="column-title">✍️ Draft</div>
+                                    <div class="task-count" id="draftTaskCount">3</div>
+                                </div>
+                                <div class="tasks-list" id="draftTasksList" ondrop="drop(event)" ondragover="allowDrop(event)" data-column="draft">
+                                    <!-- Drafts will be populated by JavaScript -->
+                                </div>
+                                <button class="add-task-btn touch-friendly" onclick="addContentItem('draft')">+ Start Draft</button>
+                            </div>
+
+                            <!-- Review Column -->
+                            <div class="kanban-column" id="reviewColumn">
+                                <div class="column-header">
+                                    <div class="column-title">👀 Review</div>
+                                    <div class="task-count" id="reviewTaskCount">0</div>
+                                </div>
+                                <div class="tasks-list" id="reviewTasksList" ondrop="drop(event)" ondragover="allowDrop(event)" data-column="review">
+                                    <!-- Review items will be populated by JavaScript -->
+                                </div>
+                                <button class="add-task-btn touch-friendly" onclick="addContentItem('review')">+ Move to Review</button>
+                            </div>
+
+                            <!-- Ready Column -->
+                            <div class="kanban-column" id="readyColumn">
+                                <div class="column-header">
+                                    <div class="column-title">✅ Ready</div>
+                                    <div class="task-count" id="readyTaskCount">1</div>
+                                </div>
+                                <div class="tasks-list" id="readyTasksList" ondrop="drop(event)" ondragover="allowDrop(event)" data-column="ready">
+                                    <!-- Ready items will be populated by JavaScript -->
+                                </div>
+                                <button class="add-task-btn touch-friendly" onclick="addContentItem('ready')">+ Ready to Publish</button>
+                            </div>
+
+                            <!-- Published Column -->
+                            <div class="kanban-column" id="publishedColumn">
+                                <div class="column-header">
+                                    <div class="column-title">🚀 Published</div>
+                                    <div class="task-count" id="publishedTaskCount">0</div>
+                                </div>
+                                <div class="tasks-list" id="publishedTasksList" ondrop="drop(event)" ondragover="allowDrop(event)" data-column="published">
+                                    <!-- Published items will be populated by JavaScript -->
+                                </div>
+                                <button class="add-task-btn touch-friendly" onclick="addContentItem('published')">+ Mark Published</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Navigation Hint -->
+                    <div style="margin-top: var(--spacing-md); text-align: center; font-size: 0.75rem; color: var(--text-muted); display: none;" class="mobile-scroll-hint">
+                        ← Scroll left and right to see all columns →
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Calendar -->
+            <div class="card fade-in-up" style="animation-delay: 0.6s; margin-top: var(--spacing-lg);">
+                <div style="padding: var(--spacing-lg);">
+                    <h3 style="margin-bottom: var(--spacing-lg);">📅 Publication Calendar</h3>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-md);">
+                        <div class="timeline-item" style="margin: 0; margin-left: 0;">
+                            <div class="timeline-header">
+                                <div class="timeline-title" style="font-size: 1rem;">Week 1</div>
+                                <div class="timeline-dates">Feb 24-Mar 2</div>
+                            </div>
+                            <div class="timeline-description" style="font-size: 0.875rem;">Origin Story (Ready to publish)</div>
+                        </div>
+                        <div class="timeline-item" style="margin: 0; margin-left: 0;">
+                            <div class="timeline-header">
+                                <div class="timeline-title" style="font-size: 1rem;">Week 2</div>
+                                <div class="timeline-dates">Mar 3-9</div>
+                            </div>
+                            <div class="timeline-description" style="font-size: 0.875rem;">Florida Testing Story (Draft needed)</div>
+                        </div>
+                        <div class="timeline-item" style="margin: 0; margin-left: 0;">
+                            <div class="timeline-header">
+                                <div class="timeline-title" style="font-size: 1rem;">Week 3</div>
+                                <div class="timeline-dates">Mar 10-16</div>
+                            </div>
+                            <div class="timeline-description" style="font-size: 0.875rem;">Nickel Feedback Story (Idea stage)</div>
+                        </div>
+                        <div class="timeline-item" style="margin: 0; margin-left: 0;">
+                            <div class="timeline-header">
+                                <div class="timeline-title" style="font-size: 1rem;">Week 4</div>
+                                <div class="timeline-dates">Mar 17-23</div>
+                            </div>
+                            <div class="timeline-description" style="font-size: 0.875rem;">Non-Technical Founder (Idea stage)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Notes Tab -->
         <div class="tab-content" id="notes">
             <div class="card">
                 <div class="notes-container">
                     <div class="notes-header">
-                        <h2>Notes & Ideas</h2>
-                        <div class="notes-meta">
-                            <span id="charCount">0 characters</span> • 
-                            <span id="lastSaved">Never saved</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                            <h2>Notes & Ideas</h2>
+                            <div style="display: flex; gap: var(--spacing-sm); align-items: center;">
+                                <div class="notes-meta">
+                                    <span id="charCount">0 characters</span> • 
+                                    <span id="lastSaved">Never saved</span> • 
+                                    <span id="aiRewriteStatus" style="color: var(--accent);">✨ AI Rewriting Active</span>
+                                </div>
+                                <button class="add-priority-btn" onclick="showAIRewriteDemo()" style="font-size: 0.8rem; padding: var(--spacing-xs) var(--spacing-sm);">
+                                    🤖 Demo AI Rewrite
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <textarea class="notes-textarea" id="notesTextarea" 
-                        placeholder="Start writing your notes here... Markdown formatting supported!"></textarea>
+                    <div style="background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 6px; padding: var(--spacing-md); margin-bottom: var(--spacing-md); font-size: 0.875rem;">
+                        <div style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-xs);">
+                            <span style="font-size: 1.2rem;">✨</span>
+                            <strong>AI Rewriting System Active</strong>
+                        </div>
+                        <div style="color: var(--text-secondary);">
+                            Select any text and right-click or press <kbd>Ctrl+R</kbd> for AI rewriting with Perris's authentic voice patterns.
+                            <br>
+                            <strong>Available options:</strong> Make Engaging • Simplify • Add Technical Depth • More Conversational • Shorten • Expand
+                        </div>
+                    </div>
+                    <textarea class="notes-textarea ai-enabled-editor" id="notesTextarea" 
+                        placeholder="Start writing your notes here... Markdown formatting supported!
+
+✨ AI Rewriting Features:
+- Select any text and right-click for quick AI rewrite options
+- Press Ctrl/Cmd + R for quick 'Make Engaging' rewrite
+- Press Ctrl/Cmd + Shift + R for full AI toolbar
+- Uses Perris's authentic voice patterns from content strategy analysis
+- Real-time preview before accepting changes
+- Full undo/redo support for all AI edits
+
+Start typing and try selecting some text to see the AI rewriting system in action!"></textarea>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <a class="mobile-nav-item active" data-tab="dashboard" onclick="switchTab('dashboard')">
+            <span class="mobile-nav-icon">📊</span>
+            <span>Dashboard</span>
+        </a>
+        <a class="mobile-nav-item" data-tab="projects" onclick="switchTab('projects')">
+            <span class="mobile-nav-icon">📋</span>
+            <span>Projects</span>
+        </a>
+        <a class="mobile-nav-item" data-tab="content" onclick="switchTab('content')">
+            <span class="mobile-nav-icon">📝</span>
+            <span>Content</span>
+        </a>
+        <a class="mobile-nav-item" data-tab="revenue" onclick="switchTab('revenue')">
+            <span class="mobile-nav-icon">💰</span>
+            <span>Revenue</span>
+        </a>
+        <a class="mobile-nav-item" data-tab="command" onclick="switchTab('command')">
+            <span class="mobile-nav-icon">🏢</span>
+            <span>More</span>
+        </a>
+    </nav>
+
+    <!-- AI Rewriting System Integration -->
+    <script src="openclaw-integration.js"></script>
+    <script src="ai-rewriting-system.js"></script>
+    <script src="ai-rewrite-demo-functions.js"></script>
+    
     <script>
         // Server configuration
         const SERVER_URL = 'http://localhost:8899';
@@ -3676,6 +4580,7 @@
             startLiveUpdates();
             setupKeyboardShortcuts();
             initializeServer();
+            setupMarkdownEditorIntegration();
         });
 
         // Navigation - Hamburger Menu & Sidebar
@@ -3696,6 +4601,7 @@
             updates: '🔄 Self-Updates',
             projects: '📋 Projects',
             timeline: '📅 Timeline',
+            content: '📝 Content Pipeline',
             notes: '📝 Notes'
         };
 
@@ -3725,9 +4631,15 @@
         });
 
         function switchTab(tabName) {
-            // Update active nav item
+            // Update active nav item (sidebar)
             document.querySelectorAll('.nav-item').forEach(t => t.classList.remove('active'));
-            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            const sidebarTab = document.querySelector(`.sidebar-nav [data-tab="${tabName}"]`);
+            if (sidebarTab) sidebarTab.classList.add('active');
+            
+            // Update active mobile nav item
+            document.querySelectorAll('.mobile-nav-item').forEach(t => t.classList.remove('active'));
+            const mobileTab = document.querySelector(`.mobile-bottom-nav [data-tab="${tabName}"]`);
+            if (mobileTab) mobileTab.classList.add('active');
             
             // Update active content
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
@@ -3735,6 +4647,33 @@
             
             // Update current tab display
             currentTabDisplay.textContent = tabLabels[tabName] || tabName;
+            
+            // Close sidebar on mobile after switching
+            if (window.innerWidth <= 767) {
+                closeSidebarNav();
+            }
+            
+            // Trigger any tab-specific initializations
+            handleTabSwitch(tabName);
+        }
+
+        // Handle tab-specific functionality
+        function handleTabSwitch(tabName) {
+            switch(tabName) {
+                case 'content':
+                    // Reset horizontal scroll position for mobile
+                    const kanbanContainer = document.querySelector('.content-kanban-container');
+                    if (kanbanContainer) kanbanContainer.scrollLeft = 0;
+                    break;
+                case 'security':
+                    // Update security status if needed
+                    updateSecurityStatus();
+                    break;
+                case 'usage':
+                    // Refresh usage data
+                    refreshUsageDisplay();
+                    break;
+            }
         }
 
         // Dashboard Initialization
@@ -3752,6 +4691,345 @@
             initializeSecurity();
             initializeUsageTracking();
             initializeSelfUpdates();
+            initializeContentPipeline();
+        }
+
+        // Content Pipeline Management
+        function initializeContentPipeline() {
+            const contentItems = getStoredData('contentItems', {
+                ideas: [
+                    { id: 101, title: 'The Silent Disco: Dancers in Apartments at Midnight', description: 'How CyphrCam enables practice in small spaces', priority: 'medium', date: '2026-03-15', obsidianPath: 'Ideas/Silent Disco Article.md', aiEnhanced: false },
+                    { id: 102, title: 'Building for Community vs Market', description: 'Lessons from creating for your actual users', priority: 'high', date: '2026-03-20', obsidianPath: 'Ideas/Community vs Market.md', aiEnhanced: true },
+                    { id: 103, title: 'Conscious Joy vs Blind Joy in Dance', description: 'Political awareness and artistic expression', priority: 'medium', date: '2026-04-01', obsidianPath: 'Ideas/Conscious Joy Article.md', aiEnhanced: false },
+                    { id: 104, title: 'The Tools We Need Won\'t Build Themselves', description: 'Philosophy of building rather than waiting', priority: 'low', date: '2026-04-10', obsidianPath: 'Ideas/Tools Philosophy.md', aiEnhanced: true },
+                    { id: 105, title: 'Marketing to Movement Agency Transition', description: 'Why I stopped talking and started building', priority: 'medium', date: '2026-04-15', obsidianPath: 'Ideas/Agency Transition.md', aiEnhanced: false }
+                ],
+                draft: [
+                    { id: 201, title: 'I tested my app on an 8-hour trip to Florida. Here\'s what broke.', description: 'Real-world testing failures and iteration lessons', priority: 'high', date: '2026-03-03', obsidianPath: 'Drafts/Florida Testing Story.md', wordCount: 1200, aiEnhanced: true },
+                    { id: 202, title: 'What Nickel taught me about making technology invisible', description: 'UX philosophy from BTM founder feedback', priority: 'medium', date: '2026-03-10', obsidianPath: 'Drafts/Nickel UX Lessons.md', wordCount: 800, aiEnhanced: false },
+                    { id: 203, title: 'I\'m a dancer who can\'t code. Here\'s how I\'m building an iOS app anyway.', description: 'Technical learning journey and AI assistance', priority: 'medium', date: '2026-03-17', obsidianPath: 'Drafts/Non-Technical Founder.md', wordCount: 1500, aiEnhanced: true }
+                ],
+                review: [],
+                ready: [
+                    { id: 301, title: 'Why I\'m Building an App for Dancers (And What It\'s Teaching Me About Everything)', description: 'Origin story - personal frustration to building solution', priority: 'high', date: '2026-02-24', obsidianPath: 'Substack Origin Story - Why I\'m Building CyphrCam.md', wordCount: 2800, aiEnhanced: true }
+                ],
+                published: []
+            });
+            
+            renderContentPipeline(contentItems);
+            updateContentMetrics(contentItems);
+        }
+
+        function renderContentPipeline(contentItems) {
+            Object.keys(contentItems).forEach(column => {
+                renderContentColumn(column, contentItems[column]);
+            });
+        }
+
+        function renderContentColumn(column, items) {
+            const container = document.getElementById(`${column}TasksList`);
+            const countElement = document.getElementById(`${column}TaskCount`);
+            
+            if (countElement) countElement.textContent = items.length;
+            
+            if (container) {
+                container.innerHTML = items.map(item => `
+                    <div class="task-card" draggable="true" ondragstart="drag(event)" data-id="${item.id}" onclick="editContentItem(${item.id}, '${column}')">
+                        <div class="task-title">${item.title}</div>
+                        <div class="task-description">${item.description}</div>
+                        ${item.wordCount ? `<div style="font-size: 0.75rem; color: var(--accent); margin-bottom: 4px;">${item.wordCount} words</div>` : ''}
+                        <div class="task-meta">
+                            <div class="task-priority ${item.priority}">${item.priority}</div>
+                            <div class="task-date">${item.date}</div>
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <button class="client-action-btn" onclick="event.stopPropagation(); console.log('Button clicked for:', '${item.obsidianPath}'); openInObsidian('${item.obsidianPath}')" style="font-size: 0.75rem; padding: 2px 8px;">📝 Edit</button>
+                            ${column === 'ready' ? '<button class="add-priority-btn" onclick="event.stopPropagation(); publishToSubstack(' + item.id + ')" style="font-size: 0.75rem; padding: 2px 8px; margin-left: 4px;">🚀 Publish</button>' : ''}
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function updateContentMetrics(contentItems) {
+            document.getElementById('ideasCount').textContent = contentItems.ideas.length;
+            document.getElementById('draftsCount').textContent = contentItems.draft.length;
+            document.getElementById('readyCount').textContent = contentItems.ready.length;
+            document.getElementById('publishedCount').textContent = contentItems.published.length;
+        }
+
+        function createNewArticle() {
+            const title = prompt('Article title:');
+            if (!title) return;
+            
+            const description = prompt('Brief description:');
+            const priority = prompt('Priority (high/medium/low):', 'medium');
+            const targetDate = prompt('Target publication date (YYYY-MM-DD):', new Date().toISOString().split('T')[0]);
+            
+            const contentItems = getStoredData('contentItems', { ideas: [], draft: [], review: [], ready: [], published: [] });
+            const newItem = {
+                id: Date.now(),
+                title,
+                description: description || '',
+                priority: ['high', 'medium', 'low'].includes(priority) ? priority : 'medium',
+                date: targetDate,
+                obsidianPath: `Ideas/${title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, ' ').trim()}.md`
+            };
+            
+            contentItems.ideas.push(newItem);
+            setStoredData('contentItems', contentItems);
+            renderContentPipeline(contentItems);
+            updateContentMetrics(contentItems);
+            addActivity(`Created new article idea: ${title}`, 'content');
+        }
+
+        function addContentItem(column) {
+            const title = prompt(`Add item to ${column}:`);
+            if (!title) return;
+            
+            const description = prompt('Description:');
+            const priority = prompt('Priority (high/medium/low):', 'medium');
+            
+            const contentItems = getStoredData('contentItems', { ideas: [], draft: [], review: [], ready: [], published: [] });
+            const newItem = {
+                id: Date.now(),
+                title,
+                description: description || '',
+                priority: ['high', 'medium', 'low'].includes(priority) ? priority : 'medium',
+                date: new Date().toISOString().split('T')[0],
+                obsidianPath: `${column.charAt(0).toUpperCase() + column.slice(1)}/${title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, ' ').trim()}.md`
+            };
+            
+            if (column === 'ready' || column === 'published') {
+                newItem.wordCount = parseInt(prompt('Word count:', '0') || '0');
+            }
+            
+            contentItems[column].push(newItem);
+            setStoredData('contentItems', contentItems);
+            renderContentPipeline(contentItems);
+            updateContentMetrics(contentItems);
+            addActivity(`Added ${column} item: ${title}`, 'content');
+        }
+
+        function editContentItem(itemId, column) {
+            const contentItems = getStoredData('contentItems', { ideas: [], draft: [], review: [], ready: [], published: [] });
+            const item = contentItems[column].find(item => item.id === itemId);
+            if (!item) return;
+            
+            const newTitle = prompt('Edit title:', item.title);
+            if (newTitle === null) return;
+            
+            const newDescription = prompt('Edit description:', item.description);
+            const newPriority = prompt('Edit priority (high/medium/low):', item.priority);
+            const newColumn = prompt('Move to column (ideas/draft/review/ready/published):', column);
+            
+            item.title = newTitle;
+            item.description = newDescription;
+            item.priority = ['high', 'medium', 'low'].includes(newPriority) ? newPriority : item.priority;
+            
+            // Handle column move
+            if (newColumn !== column && ['ideas', 'draft', 'review', 'ready', 'published'].includes(newColumn)) {
+                const itemIndex = contentItems[column].findIndex(item => item.id === itemId);
+                if (itemIndex !== -1) {
+                    contentItems[column].splice(itemIndex, 1);
+                    contentItems[newColumn].push(item);
+                    
+                    if ((newColumn === 'ready' || newColumn === 'published') && !item.wordCount) {
+                        item.wordCount = parseInt(prompt('Word count:', '0') || '0');
+                    }
+                }
+            }
+            
+            setStoredData('contentItems', contentItems);
+            renderContentPipeline(contentItems);
+            updateContentMetrics(contentItems);
+            addActivity(`Updated content item: ${item.title}`, 'content');
+        }
+
+        function openInObsidian(obsidianPath) {
+            // Use simple working editor
+            console.log('openInObsidian called with:', obsidianPath);
+            
+            const title = obsidianPath.split('/').pop().replace('.md', '');
+            const fullPath = `/Users/iamperris/Local Documents/Main Second Brain (Local)/${obsidianPath}`;
+            
+            console.log('Opening in simple editor:', title);
+            
+            try {
+                openSimpleEditor(fullPath, title);
+                addActivity(`Opened in editor: ${title}`, 'content');
+            } catch (error) {
+                console.error('Error opening simple editor:', error);
+                alert('Error opening editor: ' + error.message);
+            }
+        }
+
+        // Setup integration between markdown editor and content pipeline
+        function setupMarkdownEditorIntegration() {
+            // Wait for markdown editor to be ready
+            const checkEditor = () => {
+                if (window.markdownEditor) {
+                    // Add observer to update content pipeline when files are saved
+                    window.markdownEditor.addObserver((event, data) => {
+                        switch(event) {
+                            case 'fileSaved':
+                                updateContentItemWordCount(data.file, data.content);
+                                addActivity(`Saved: ${data.file.split('/').pop()}`, 'content');
+                                break;
+                            case 'fileOpened':
+                                addActivity(`Opened in editor: ${data.title || data.file.split('/').pop()}`, 'content');
+                                break;
+                            case 'editorClosed':
+                                // Could trigger auto-sync or cleanup here
+                                break;
+                        }
+                    });
+                    
+                    // Initialize with demo content for existing items
+                    initializeMarkdownContent();
+                } else {
+                    // Try again in 100ms
+                    setTimeout(checkEditor, 100);
+                }
+            };
+            
+            checkEditor();
+        }
+        
+        // Update word count when files are saved
+        function updateContentItemWordCount(filePath, content) {
+            const contentItems = getStoredData('contentItems', { ideas: [], draft: [], review: [], ready: [], published: [] });
+            let updated = false;
+            
+            // Find the item by file path and update word count
+            Object.keys(contentItems).forEach(column => {
+                contentItems[column].forEach(item => {
+                    if (item.obsidianPath && filePath.includes(item.obsidianPath)) {
+                        const words = content.trim().split(/\s+/).filter(word => word.length > 0).length;
+                        item.wordCount = words;
+                        updated = true;
+                    }
+                });
+            });
+            
+            if (updated) {
+                setStoredData('contentItems', contentItems);
+                renderContentPipeline(contentItems);
+                updateContentMetrics(contentItems);
+            }
+        }
+        
+        // Initialize markdown content for existing items
+        function initializeMarkdownContent() {
+            const contentItems = getStoredData('contentItems', { ideas: [], draft: [], review: [], ready: [], published: [] });
+            
+            // Generate demo content for items that don't have word counts
+            Object.keys(contentItems).forEach(column => {
+                contentItems[column].forEach(item => {
+                    if (!item.wordCount && (column === 'ready' || column === 'published')) {
+                        // Set realistic word counts for demo
+                        item.wordCount = column === 'ready' ? 2800 : Math.floor(Math.random() * 2000) + 1500;
+                    }
+                });
+            });
+            
+            setStoredData('contentItems', contentItems);
+        }
+
+        function openObsidian() {
+            const obsidianUrl = 'obsidian://open?vault=Main%20Second%20Brain%20(Local)';
+            window.open(obsidianUrl);
+            addActivity('Opened Obsidian vault', 'content');
+        }
+        
+        function testMarkdownEditor() {
+            console.log('Testing simple editor...');
+            
+            try {
+                openSimpleEditor('/test/path/Test Document.md', 'Test Article');
+                console.log('✅ Simple editor test successful!');
+            } catch (error) {
+                console.error('❌ Test failed:', error);
+                alert('Test failed: ' + error.message);
+            }
+        }
+        
+        function updateContentWordCount(title, wordCount) {
+            // Update word count in content pipeline
+            const contentItems = getStoredData('contentItems', { ideas: [], draft: [], review: [], ready: [], published: [] });
+            
+            // Find the item and update word count
+            for (const column in contentItems) {
+                const item = contentItems[column].find(item => item.title === title);
+                if (item) {
+                    item.wordCount = wordCount;
+                    setStoredData('contentItems', contentItems);
+                    renderContentPipeline(contentItems);
+                    updateContentMetrics(contentItems);
+                    console.log(`Updated word count for "${title}": ${wordCount} words`);
+                    break;
+                }
+            }
+        }
+
+        function publishToSubstack(itemId) {
+            const contentItems = getStoredData('contentItems', { ideas: [], draft: [], review: [], ready: [], published: [] });
+            const item = contentItems.ready.find(item => item.id === itemId);
+            if (!item) return;
+            
+            if (confirm(`Publish "${item.title}" to Substack?\n\nThis will open your Substack editor with the content.`)) {
+                // Move from ready to published
+                const itemIndex = contentItems.ready.findIndex(item => item.id === itemId);
+                contentItems.ready.splice(itemIndex, 1);
+                item.publishDate = new Date().toISOString().split('T')[0];
+                contentItems.published.push(item);
+                
+                setStoredData('contentItems', contentItems);
+                renderContentPipeline(contentItems);
+                updateContentMetrics(contentItems);
+                addActivity(`Published to Substack: ${item.title}`, 'content');
+                
+                // Open Substack
+                window.open('https://substack.com/publish');
+            }
+        }
+
+        // Drag and Drop for Content Pipeline
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.dataset.id);
+            ev.dataTransfer.setData("sourceColumn", ev.target.closest('[data-column]').dataset.column);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            const itemId = parseInt(ev.dataTransfer.getData("text"));
+            const sourceColumn = ev.dataTransfer.getData("sourceColumn");
+            const targetColumn = ev.target.closest('[data-column]').dataset.column;
+            
+            if (sourceColumn === targetColumn) return;
+            
+            const contentItems = getStoredData('contentItems', { ideas: [], draft: [], review: [], ready: [], published: [] });
+            const itemIndex = contentItems[sourceColumn].findIndex(item => item.id === itemId);
+            
+            if (itemIndex !== -1) {
+                const item = contentItems[sourceColumn].splice(itemIndex, 1)[0];
+                
+                // Add word count if moving to ready/published
+                if ((targetColumn === 'ready' || targetColumn === 'published') && !item.wordCount) {
+                    const wordCount = prompt('Word count for this article:', '0');
+                    item.wordCount = parseInt(wordCount || '0');
+                }
+                
+                contentItems[targetColumn].push(item);
+                setStoredData('contentItems', contentItems);
+                renderContentPipeline(contentItems);
+                updateContentMetrics(contentItems);
+                addActivity(`Moved "${item.title}" from ${sourceColumn} to ${targetColumn}`, 'content');
+            }
         }
 
         // Live Updates
@@ -6726,7 +8004,174 @@
             
             // Load weather data
             loadWeatherData();
+            
+            // Initialize mobile features
+            initializeMobileFeatures();
         }, 1000);
+
+        // Mobile-specific features
+        function initializeMobileFeatures() {
+            // Add touch event handlers for better mobile interaction
+            if ('ontouchstart' in window) {
+                // Add touch feedback to cards
+                document.addEventListener('touchstart', function(e) {
+                    if (e.target.closest('.task-card')) {
+                        e.target.closest('.task-card').style.transform = 'scale(0.98)';
+                    }
+                });
+                
+                document.addEventListener('touchend', function(e) {
+                    if (e.target.closest('.task-card')) {
+                        e.target.closest('.task-card').style.transform = '';
+                    }
+                });
+                
+                // Improve horizontal scroll experience
+                const kanbanContainer = document.querySelector('.content-kanban-container');
+                if (kanbanContainer) {
+                    let isScrolling = false;
+                    
+                    kanbanContainer.addEventListener('scroll', function() {
+                        isScrolling = true;
+                        clearTimeout(window.scrollTimer);
+                        
+                        // Show scroll indicator
+                        kanbanContainer.style.borderBottom = '2px solid var(--accent)';
+                        
+                        window.scrollTimer = setTimeout(function() {
+                            isScrolling = false;
+                            kanbanContainer.style.borderBottom = '';
+                        }, 150);
+                    });
+                }
+            }
+            
+            // Update mobile nav visibility based on screen size
+            updateMobileNavVisibility();
+            
+            // Handle orientation changes
+            window.addEventListener('orientationchange', function() {
+                setTimeout(function() {
+                    updateMobileNavVisibility();
+                    handleResponsiveLayout();
+                }, 100);
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                updateMobileNavVisibility();
+                handleResponsiveLayout();
+            });
+        }
+
+        function updateMobileNavVisibility() {
+            const mobileNav = document.getElementById('mobileBottomNav');
+            
+            if (window.innerWidth <= 767) {
+                if (mobileNav) mobileNav.style.display = 'flex';
+                // Auto-close sidebar on mobile
+                closeSidebarNav();
+            } else {
+                if (mobileNav) mobileNav.style.display = 'none';
+            }
+        }
+
+        function handleResponsiveLayout() {
+            // Adjust grid layouts based on screen size
+            const kanbanBoard = document.querySelector('.content-kanban-board');
+            if (kanbanBoard) {
+                if (window.innerWidth <= 575) {
+                    // Mobile: Stack columns
+                    kanbanBoard.style.gridTemplateColumns = '1fr';
+                    kanbanBoard.style.width = '100%';
+                } else if (window.innerWidth <= 991) {
+                    // Tablet: Horizontal scroll
+                    kanbanBoard.style.gridTemplateColumns = 'repeat(5, minmax(250px, 1fr))';
+                    kanbanBoard.style.width = 'max-content';
+                } else {
+                    // Desktop: Full width
+                    kanbanBoard.style.gridTemplateColumns = 'repeat(5, 1fr)';
+                    kanbanBoard.style.width = '100%';
+                }
+            }
+            
+            // Update metrics grid
+            updateMetricsGridLayout();
+        }
+
+        function updateMetricsGridLayout() {
+            const metricsGrids = document.querySelectorAll('.metrics-grid');
+            metricsGrids.forEach(grid => {
+                if (window.innerWidth <= 575) {
+                    grid.style.gridTemplateColumns = '1fr';
+                } else if (window.innerWidth <= 991) {
+                    grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                } else if (window.innerWidth <= 1199) {
+                    grid.style.gridTemplateColumns = 'repeat(3, 1fr)';
+                } else {
+                    grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
+                }
+            });
+        }
+
+        function showToast(message, type = 'info') {
+            // Create toast notification
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: var(--spacing-md);
+                background: var(--card-bg);
+                border: 1px solid var(--card-border);
+                border-radius: var(--border-radius);
+                padding: var(--spacing-md);
+                color: var(--text-primary);
+                z-index: 9999;
+                backdrop-filter: blur(20px);
+                animation: slideIn 0.3s ease;
+                font-size: 0.875rem;
+                max-width: 300px;
+            `;
+            
+            // Add type-specific styling
+            if (type === 'success') {
+                toast.style.borderLeft = '4px solid var(--success)';
+            } else if (type === 'error') {
+                toast.style.borderLeft = '4px solid var(--danger)';
+            } else {
+                toast.style.borderLeft = '4px solid var(--accent)';
+            }
+            
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    if (document.body.contains(toast)) {
+                        document.body.removeChild(toast);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Add CSS for toast animations
+        const toastStyles = document.createElement('style');
+        toastStyles.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(toastStyles);
     </script>
+    
+    <!-- Simple Working Editor -->
+    <script src="simple-editor.js"></script>
 </body>
 </html>
