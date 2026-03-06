@@ -1,13 +1,13 @@
 {
   "lastChecks": {
-    "quickCaptureScan": 1741097460,
-    "dailyNoteScan": 1741097460,
+    "quickCaptureScan": 1741232460,
+    "dailyNoteScan": 1741232460,
     "todoistSync": null,
     "email": null,
     "calendar": null,
     "weather": null,
     "contentExtraction": 1740902040
   },
-  "lastQuickCaptureProcessed": "2026-03-04 - 20 Years of Watching Myself Dance on Video and Movement Dysmorphia Still Hits When I Push Into New Territory",
-  "notes": "Updated 2026-03-04 9:11 AM. Heartbeat scan: 3 new captures since last extraction (March 3 Anthony Boone, March 3 Nickel CyphrCam Setup, March 4 BTM Movement Dysmorphia). All already processed in Master To-Do Hub. Bug report filed in Obsidian (CyphrCam-Bug-Report-2026-03-03-Calibration-Sync.md) with 4 critical bugs. Hub has some duplicate sections that need cleanup. No daily note for March 4 yet. Perris is night owl - no morning message needed."
+  "lastQuickCaptureProcessed": "2026-03-04 - Tailscale SSH Setup Hell With Claude Code - Mac to Surface Node Host Pairing Marathon",
+  "notes": "Updated 2026-03-05 9:41 PM. Heartbeat scan found 2 new captures since last scan: 'OpenClaw Node Pairing War' and 'Tailscale SSH Setup Hell' (both March 4). Both already had structured tasks in their files. Extracted 10 new tasks into Master To-Do Hub across High Priority (4), System Building (3), and Technical Implementation (3). Today's daily note (March 5) is empty - no braindump to process. No new captures since March 4."
 }
