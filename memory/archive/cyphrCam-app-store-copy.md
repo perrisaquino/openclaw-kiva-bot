@@ -33,11 +33,11 @@ Record yourself dancing to music through headphones. CyphrCam automatically sync
 
 **Put in your headphones. Hit record. Dance anywhere.**
 
-CyphrCam is the only recording app built specifically for freestyle dancers. Play music through your headphones while you record, and CyphrCam automatically syncs the audio to your video. No post-editing. No speaker setup. No noise complaints.
+CyphrCam is the only recording app built specifically for dancers. Play music through your bluetooth headphones or speakers while you record, and CyphrCam automatically syncs the audio to your video. No post-editing. No noise complaints.
 
 **Built by a dancer, for dancers.**
 
-Whether you're sessioning at home, labbing new concepts, or drilling combos in your apartment at midnight, CyphrCam lets you practice without compromise.
+Whether you're sessioning at home, filming a dance video in public, teaching a class, dancing with friends or drilling combos in your apartment at 2AM, CyphrCam lets you practice without disturbing people around you. 
 
 **Core Features:**
 
