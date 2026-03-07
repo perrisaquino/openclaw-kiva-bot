@@ -41,23 +41,22 @@ Whether you're sessioning at home, filming a dance video in public, teaching a c
 
 **Core Features:**
 
-• Automatic Music Sync - Your headphone audio syncs perfectly to video with zero editing
+• Dance with headphones - Film a video anytime, anywhere, without disturbing your surroundings
+- Auto-overlay the music - Your headphone audio syncs perfectly to video with zero editing
 • Unlimited Recording Time - No cutoffs during your best rounds
-• Blackout Mode - Turn off the screen and focus on feeling, not looking
+• Blackout Mode - Turn off the screen and be more present with your practice
 • Personal Music Library - Upload your own tracks and build playlists
-• Live Music Controls - Skip, pause, adjust volume while recording
+• Live Music Controls - Skip, pause, adjust volume while recording (music gets auto-edited)
 • Silent Disco Mode - Share audio with AirPods so you can session with friends silently
-• Front and Back Camera - Switch perspectives mid-session
+- Filmmaking Controls - Film in 1080p, 4k, 60fps, 24fps
+- Track your progress - Get insights about your creative process and practice habits
+- Movement journal - Take notes on your practice and document your growth 
 • Auto-Orientation - Portrait or landscape, CyphrCam adjusts automatically
 • Save to Camera Roll - Your videos, your phone, no accounts needed
 
-**No social media features. No algorithms. No distractions.**
-
 CyphrCam protects your practice. That's it.
 
-**For freestylers, poppers, lockers, breakers, wavers, animators, and every dancer who needs to hear the music to feel the music.**
-
-Practice anywhere. Capture everything. Edit nothing.
+**For freestylers, choreographers, and every mover who needs to hear the music to feel the music.**
 
 ---
 
