@@ -1,13 +1,13 @@
 {
   "lastChecks": {
-    "quickCaptureScan": 1741308600,
-    "dailyNoteScan": 1741308600,
+    "quickCaptureScan": 1741391460,
+    "dailyNoteScan": 1741391460,
     "todoistSync": null,
     "email": null,
     "calendar": null,
     "weather": null,
     "contentExtraction": 1740902040
   },
-  "lastQuickCaptureProcessed": "2026-03-06 - Calibration Fixes Shipped, Sent Mom $945 From the Loria Gig, and Fighting a Fraudulent $250 Monthly Health Insurance Charge",
-  "notes": "Updated 2026-03-06 4:50 PM. Found 1 new capture from today (March 6). Extracted 8 new tasks into Master To-Do Hub: 5 High Priority (calibration testing, beta language removal, logo fix, TestFlight push, Anthony followup) and 3 Kiva-actionable (health insurance demand letter, Surface setup docs, chargeback guidance). Perris expressed frustration with OpenClaw memory quality. Health insurance fraud situation flagged for proactive action."
+  "lastQuickCaptureProcessed": "2026-03-07 - App Store Sprint, Feedback Board, and Letting Go of Skool",
+  "notes": "Updated 2026-03-07 7:51 PM. Found 1 new capture from today (March 7). Massive brain dump: App Store sprint planning, custom feedback board (UserJot/Canny alternative on Vercel), Skool transition, CyphrCam feature roadmap (light mode, crop/zoom, filters, FaceTime reactions, auto-orientation), tutorial video re-record, music purchasing positioning, Android port consideration. Extracted 16 new tasks into Master To-Do Hub: 7 High Priority (Anthony reschedule, Colton hangout, tutorial video, feedback board, logo, music purchasing, Skool transition) + 6 Feature Development (light mode, crop/zoom, auto-orientation, filters, FaceTime reaction, social publish) + 3 Research (music article, Android device, feedback board MVP). Daily note braindump was same content as quick capture (already processed)."
 }
