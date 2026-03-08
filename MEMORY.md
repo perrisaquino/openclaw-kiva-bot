@@ -199,9 +199,8 @@ Raw reflection → Structured Obsidian note with:
 - **Living documents:** Space for expansion, note-taking, and connection-building
 - **Content pipeline signals:** Checked items indicate what resonates for content creation
 - **Checkbox formatting applied to:** Lessons, Ideas, Idea Compass (West/East/North/South), Content Potential
-- **To-Do List section:** Extracts concrete executable tasks from reflections
-- **Central Command Hub:** Main place to harness "yapping" and extract structured action across content creation, business decisions, task execution, and inspiration capture
-- **Task Management Integration:** Master To-Do Hub aggregates all tasks from reflections, with heartbeat automation for Todoist sync and delegation protocol (Kiva vs. Perris tasks)
+- **To-Do List section:** Tasks extracted from reflections go DIRECTLY to Todoist (single source of truth)
+- **SYSTEM SIMPLIFICATION (March 8, 2026):** Master To-Do Hub DELETED. Todoist is the ONLY task system. No markdown task hubs, no scattered to-do lists. When processing Quick Captures, actionable tasks go straight to Todoist inbox tagged `@quick_capture`. Checkboxes in Quick Capture notes are reflection prompts (lessons/ideas to revisit), NOT tasks.
 - **Conversation Capture System (updated 2026-03-01):** Clean separation: Main note has conversation link below TL;DR as a clean CTA using Obsidian alias syntax: `[[Note Name|See the full conversation]]`. No arrows, no duplicate title display. Insights from original reflection only stay in main note. All conversation insights, dialogue-generated ideas, and expanded compass stay in separate conversation note. Edge case: conversation link only appears if dialogue occurred.
 
 ## Major Quick Capture: Thriving Artist Consciousness (2026-02-27)
