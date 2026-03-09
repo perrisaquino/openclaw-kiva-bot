@@ -1,13 +1,13 @@
 {
   "lastChecks": {
-    "quickCaptureScan": 1741410060,
-    "dailyNoteScan": 1741410060,
+    "quickCaptureScan": 1741489560,
+    "dailyNoteScan": 1741489560,
     "todoistSync": null,
     "email": null,
     "calendar": null,
     "weather": null,
-    "contentExtraction": 1740902040
+    "contentExtraction": 1741489560
   },
-  "lastQuickCaptureProcessed": "2026-03-07 - App Store Sprint, Feedback Board, and Letting Go of Skool",
-  "notes": "Updated 2026-03-07 11:01 PM. March 7 capture already processed into Quick Captures feed and Master To-Do Hub. 15 new tasks extracted: 7 High Priority (text Anthony, Colton hangout, tutorial video, feedback board, logo, music purchasing, Skool transition) and 8 Kiva-actionable (light mode branch, crop/zoom, auto-orientation, filters, FaceTime reaction UI, music article, Android research, feedback board MVP). Key strategic shift: moving from Skool community to purpose-built feedback board for App Store launch."
+  "lastQuickCaptureProcessed": "2026-03-08 - Claude Handoff - Obsidian Annotation Plugin",
+  "notes": "Updated 2026-03-08 9:06 PM. Weekly content pipeline completed: 6 content ideas extracted from March 3-8 reflections and pushed to Notion Content Pipeline V2. Topics: Movement Dysmorphia (Substack), Infrastructure Week/Dance disconnect (Substack), Cousin debugging story (LinkedIn), Freestyle vibe-to-vocabulary framework (Instagram), Skool to feedback board pivot (Threads), Solo founder mental health (Substack). March 8 daily note empty (no braindump). March 8 quick capture is a Claude Code handoff for Obsidian annotation plugin fix (technical, not content)."
 }
