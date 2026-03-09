@@ -41,3 +41,6 @@
 - **X10 Pro** — CyphrCam codebase, pics
 - **+Ultra** — unknown
 - **Antigravity** — has Antigravity.app
+
+## Monitor Fix (MacBook + Hub + Dual Monitors)
+- If monitors don't feed from the hub: **unplug the HDMI cable, then plug it back in**. Kick-starts the connection.
